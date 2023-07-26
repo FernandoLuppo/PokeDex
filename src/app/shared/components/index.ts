@@ -1,0 +1,5 @@
+export * from "./buttons/bigButton/BigButton"
+export * from "./buttons/button/Button"
+export * from "./cardLoginAndRegister/Card"
+export * from "./input/index"
+export * from "./loading"

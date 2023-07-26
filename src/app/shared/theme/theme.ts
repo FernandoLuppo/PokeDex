@@ -30,7 +30,7 @@ export const Theme = {
       ButtonText: "#444"
     },
     size: {
-      desktop: {
+      main: {
         xxl: "96px",
         xl: "64px",
         l: "50px",
@@ -39,14 +39,9 @@ export const Theme = {
         xs: "24px",
         xxs: "20px"
       },
-      phone: {
-        xxl: "64px",
-        xl: "50px",
+      side: {
         l: "40px",
-        m: "36px",
-        s: "30px",
-        xs: "25px",
-        xxs: "20px"
+        m: "25px"
       }
     }
   },
