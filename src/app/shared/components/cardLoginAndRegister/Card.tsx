@@ -1,18 +1,14 @@
 import * as S from "./card.styles"
 import { useNavigate } from "react-router-dom"
-import { BsArrowBarLeft } from "react-icons/bs"
-import { BigButton, Button, InputForm, LoadingPage } from "../index"
+import { LoadingPage } from "../index"
 import { useCallback, useState } from "react"
 import { post } from "../../service"
 import { usePost } from "../../hook"
 import { useAuthenticate } from "../../hook/errors/useAuthenticate"
 import type { IUseAuthenticate } from "../../types"
+import { Buttons, Exit, Form } from "./components"
 
-interface ICardProps {
-  isName?: boolean
-}
-
-export const Card: React.FC<ICardProps> = ({ isName }) => {
+export const Card: React.FC<boolean> = isName => {
   const navigate = useNavigate()
 
   const [name, setName] = useState<string>()
@@ -46,64 +42,18 @@ export const Card: React.FC<ICardProps> = ({ isName }) => {
   return (
     <S.ContainerCard>
       {isLoading && <LoadingPage />}
-      <S.ContainerExit
-        onClick={() => {
-          navigate("/")
-        }}
-      >
-        <BsArrowBarLeft size={window.innerWidth > 1000 ? 25 : 20} />
-        <span>Home</span>
-      </S.ContainerExit>
+      <Exit />
       <h1>Register</h1>
 
-      <S.ContainerForm>
-        {isName === true && (
-          <InputForm
-            type="text"
-            label="name"
-            text="Example: Ash Ketchum"
-            errors={error?.name}
-            onChange={e => {
-              setName(e.target.value)
-            }}
-          >
-            Name:
-          </InputForm>
-        )}
+      <Form
+        error={error}
+        isName={isName}
+        setName={setName}
+        setEmail={setEmail}
+        setPassword={setPassword}
+      />
 
-        <InputForm
-          type="email"
-          label="email"
-          text="Example: red@gmail.com"
-          errors={error?.email}
-          onChange={e => {
-            setEmail(e.target.value)
-          }}
-        >
-          Email:
-        </InputForm>
-
-        <InputForm
-          type="password"
-          label="password"
-          text="******"
-          errors={error?.password}
-          onChange={e => {
-            setPassword(e.target.value)
-          }}
-        >
-          Password:
-        </InputForm>
-      </S.ContainerForm>
-
-      <S.ContainerButtons>
-        {window.innerWidth > 365 ? (
-          <BigButton onClick={handleSingUp}>Sing up</BigButton>
-        ) : (
-          <Button onClick={handleSingUp}>Sing up</Button>
-        )}
-        <button onClick={handleLogin}>Log in</button>
-      </S.ContainerButtons>
+      <Buttons handleLogin={handleLogin} handleSingUp={handleSingUp} />
     </S.ContainerCard>
   )
 }
