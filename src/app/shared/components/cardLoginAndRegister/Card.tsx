@@ -4,7 +4,9 @@ import { BsArrowBarLeft } from "react-icons/bs"
 import { BigButton, Button, InputForm, LoadingPage } from "../index"
 import { useCallback, useState } from "react"
 import { post } from "../../service"
-import type { IResponse, IResponseValidationError } from "../../types"
+import { usePost } from "../../hook"
+import { useAuthenticate } from "../../hook/errors/useAuthenticate"
+import type { IUseAuthenticate } from "../../types"
 
 interface ICardProps {
   isName?: boolean
@@ -17,27 +19,24 @@ export const Card: React.FC<ICardProps> = ({ isName }) => {
   const [email, setEmail] = useState<string>()
   const [password, setPassword] = useState<string>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [error, setError] = useState<IUseAuthenticate>()
 
   const handleSingUp = useCallback(async () => {
     setIsLoading(true)
-
     const res = await post({ name, email, password }, "/user/register")
+    const result = usePost(res)
 
-    function separator(
-      data: IResponseValidationError | IResponse
-    ): data is IResponse {
-      return "isError" in data
+    if (result.isError) {
+      const authenticateErrors = useAuthenticate(
+        result.data.response.data.error
+      )
+      setError(authenticateErrors)
+      setIsLoading(false)
+      return
     }
-
-    if (separator(res)) {
-      console.log(res.data)
-
-      return res
-    }
-
-    console.log(res.response)
 
     setIsLoading(false)
+    navigate("/login")
   }, [name, email, password, isLoading])
 
   const handleLogin = useCallback(() => {
@@ -63,6 +62,7 @@ export const Card: React.FC<ICardProps> = ({ isName }) => {
             type="text"
             label="name"
             text="Example: Ash Ketchum"
+            errors={error?.name}
             onChange={e => {
               setName(e.target.value)
             }}
@@ -75,6 +75,7 @@ export const Card: React.FC<ICardProps> = ({ isName }) => {
           type="email"
           label="email"
           text="Example: red@gmail.com"
+          errors={error?.email}
           onChange={e => {
             setEmail(e.target.value)
           }}
@@ -86,6 +87,7 @@ export const Card: React.FC<ICardProps> = ({ isName }) => {
           type="password"
           label="password"
           text="******"
+          errors={error?.password}
           onChange={e => {
             setPassword(e.target.value)
           }}

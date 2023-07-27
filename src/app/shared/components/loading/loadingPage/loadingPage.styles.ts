@@ -1,6 +1,7 @@
 import { styled } from "styled-components"
 
 export const ContainerLoadingPage = styled.div`
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;

@@ -6,11 +6,7 @@ export const Register: React.FC = () => {
     <S.ContainerRegister>
       <Card isName={true} />
 
-      {window.innerWidth > 1000 ? (
-        <S.RegisterImage data-testid="register-img" />
-      ) : (
-        ""
-      )}
+      {window.innerWidth > 1000 ? <S.RegisterImage /> : ""}
     </S.ContainerRegister>
   )
 }

@@ -27,6 +27,11 @@ export const ContainerInputForm = styled.div`
     border: none;
   }
 
+  p {
+    font-size: ${Theme.font.size.main.xs};
+    color: ${Theme.colors.others.exit};
+  }
+
   /* @media (max-width: 450px) {
     label {
       font-size: ${Theme.font.size.main.m};
