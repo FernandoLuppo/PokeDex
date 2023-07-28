@@ -7,7 +7,9 @@ describe("BigButton.tsx", () => {
     render(<BigButton text={buttonText} />)
 
     const buttonElement = screen.getByRole("button", { name: buttonText })
+
     expect(buttonElement).toBeInTheDocument()
+    expect(buttonElement).toHaveTextContent(buttonText)
   })
 
   it("Should calls the onClick callback when clicked", () => {
