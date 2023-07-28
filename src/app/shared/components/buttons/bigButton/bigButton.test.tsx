@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import { BigButton } from "./BigButton"
 
-describe("BigButton.tsx", () => {
+describe("<BigButton />", () => {
   it("Should renders correctly with the provided text", () => {
     const buttonText = "Click Me!"
     render(<BigButton text={buttonText} />)
