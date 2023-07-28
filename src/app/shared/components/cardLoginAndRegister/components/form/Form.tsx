@@ -15,41 +15,38 @@ export const Form: React.FC<IProps> = props => {
     <S.ContainerForm>
       {props.isName !== undefined && (
         <InputForm
+          text="Name:"
           type="text"
           label="name"
-          text="Example: Ash Ketchum"
+          placeholder="Example: Ash Ketchum"
           errors={props.error?.name}
           onChange={e => {
             props.setName(e.target.value)
           }}
-        >
-          Name:
-        </InputForm>
+        />
       )}
 
       <InputForm
+        text="Email:"
         type="email"
         label="email"
-        text="Example: red@gmail.com"
+        placeholder="Example: red@gmail.com"
         errors={props.error?.email}
         onChange={e => {
           props.setEmail(e.target.value)
         }}
-      >
-        Email:
-      </InputForm>
+      />
 
       <InputForm
+        text="Password:"
         type="password"
         label="password"
-        text="******"
+        placeholder="******"
         errors={props.error?.password}
         onChange={e => {
           props.setPassword(e.target.value)
         }}
-      >
-        Password:
-      </InputForm>
+      />
     </S.ContainerForm>
   )
 }
