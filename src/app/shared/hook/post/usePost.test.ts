@@ -1,4 +1,4 @@
-import { usePost } from ".."
+import { usePost } from "./usePost"
 
 describe("usePost.ts", () => {
   it("Should return a valid value in data with isError value false", () => {
