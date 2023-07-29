@@ -1,14 +1,17 @@
 import * as S from "./card.styles"
+import type { IUseAuthenticate } from "../../types"
 import { useNavigate } from "react-router-dom"
 import { LoadingPage } from "../index"
 import { useCallback, useState } from "react"
 import { post } from "../../service"
-import { usePost } from "../../hook"
-import { useAuthenticate } from "../../hook/errors/useAuthenticate"
-import type { IUseAuthenticate } from "../../types"
+import { usePost, useAuthenticate } from "../../hook"
 import { Buttons, Exit, Form } from "./components"
 
-export const Card: React.FC<boolean> = isName => {
+interface IProps {
+  isName: boolean
+}
+
+export const Card: React.FC<IProps> = ({ isName }) => {
   const navigate = useNavigate()
 
   const [name, setName] = useState<string>()
