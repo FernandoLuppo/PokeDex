@@ -8,7 +8,7 @@ export const ContainerButtons = styled.div`
   align-items: center;
   gap: 22px;
 
-  button:last-child {
+  button:nth-child(2) {
     cursor: pointer;
     border: none;
     font-size: ${Theme.font.size.main.l};

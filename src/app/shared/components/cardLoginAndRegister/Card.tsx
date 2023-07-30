@@ -48,7 +48,7 @@ export const Card: React.FC<IProps> = ({
 
   const handleLogin = useCallback(() => {
     navigate("/login")
-  }, [navigate])
+  }, [])
 
   return (
     <S.ContainerCard>

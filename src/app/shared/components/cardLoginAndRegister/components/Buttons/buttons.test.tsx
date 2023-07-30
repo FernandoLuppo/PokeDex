@@ -1,13 +1,14 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import { Buttons } from "./Buttons"
 
-describe("<Buttons />", () => {
-  const mockNavigate = jest.fn()
-  jest.mock("react-router-dom", () => ({
-    ...jest.requireActual("react-router-dom"),
-    useNavigate: () => mockNavigate
-  }))
+const mockNavigate = jest.fn()
 
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockNavigate
+}))
+
+describe("<Buttons />", () => {
   it("Buttons should be in the document", () => {
     render(
       <Buttons
@@ -106,7 +107,6 @@ describe("<Buttons />", () => {
     })
 
     fireEvent.click(buttonRecoverPassword)
-
     expect(mockNavigate).toBeCalledTimes(1)
     expect(mockNavigate).toBeCalledWith("/recover-password/check-email")
   })
