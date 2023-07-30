@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import { Home, Register } from "../pages"
+import { Home, Login, Register } from "../pages"
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -7,6 +7,7 @@ export const AppRoutes: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>

@@ -22,7 +22,7 @@ jest.mock("../../hook/errors/useAuthenticate.ts", () => ({
 describe("<Card />", () => {
   describe("Should be in the document", () => {
     it("Components should be in the document", () => {
-      render(<Card isName={true} title="Register" />)
+      render(<Card isName={true} title="Register" url="user/register" />)
 
       const exitElement = screen.getByText("Home")
       const formElement = screen.getByPlaceholderText("Example: red@gmail.com")
@@ -34,7 +34,7 @@ describe("<Card />", () => {
     })
 
     it("Components should be in the document with name field in the form", () => {
-      render(<Card isName={true} title="Register" />)
+      render(<Card isName={true} title="Register" url="user/register" />)
 
       const exitElement = screen.getByText("Home")
       const formElement = screen.getByPlaceholderText("Example: red@gmail.com")
@@ -51,7 +51,7 @@ describe("<Card />", () => {
   })
   describe("Functions should be work correctly", () => {
     it("Should call the function handleLogin correctly", () => {
-      render(<Card isName={true} title="Register" />)
+      render(<Card isName={true} title="Register" url="user/register" />)
 
       const loginButton = screen.getByText("Log in")
       fireEvent.click(loginButton)
@@ -65,7 +65,7 @@ describe("<Card />", () => {
         isError: false
       })
 
-      render(<Card isName={true} title="Register" />)
+      render(<Card isName={true} title="Register" url="user/register" />)
 
       const singUpButton = screen.getByText("Sing up")
       fireEvent.click(singUpButton)
@@ -92,7 +92,7 @@ describe("<Card />", () => {
       })
       mockUseAuthenticate.mockReturnValueOnce(authenticateErrors)
 
-      render(<Card isName={true} title="Register" />)
+      render(<Card isName={true} title="Register" url="user/register" />)
 
       const singUpButton = screen.getByText("Sing up")
       fireEvent.click(singUpButton)

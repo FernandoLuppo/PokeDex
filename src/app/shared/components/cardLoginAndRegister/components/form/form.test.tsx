@@ -14,11 +14,13 @@ describe("<Form />", () => {
         />
       )
 
+      const inputName = screen.queryByPlaceholderText("Example: Ash Ketchum")
       const inputEmail = screen.getByPlaceholderText("Example: red@gmail.com")
       const inputPassword = screen.getByPlaceholderText("******")
 
       expect(inputEmail).toBeInTheDocument()
       expect(inputPassword).toBeInTheDocument()
+      expect(inputName).toBeNull()
     })
 
     it("Should be in the document the input name, email and password", () => {

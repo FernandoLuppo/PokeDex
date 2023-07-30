@@ -6,14 +6,14 @@ interface IProps {
   setName: React.Dispatch<React.SetStateAction<string | undefined>>
   setEmail: React.Dispatch<React.SetStateAction<string | undefined>>
   setPassword: React.Dispatch<React.SetStateAction<string | undefined>>
-  isName?: boolean
+  isName: boolean
   error: IUseAuthenticate | undefined
 }
 
 export const Form: React.FC<IProps> = props => {
   return (
     <S.ContainerForm>
-      {props.isName !== undefined && (
+      {props.isName && (
         <InputForm
           text="Name:"
           type="text"

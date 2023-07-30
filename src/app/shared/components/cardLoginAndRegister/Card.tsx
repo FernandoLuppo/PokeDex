@@ -10,9 +10,10 @@ import { Buttons, Exit, Form } from "./components"
 interface IProps {
   isName: boolean
   title: string
+  url: string
 }
 
-export const Card: React.FC<IProps> = ({ isName, title }) => {
+export const Card: React.FC<IProps> = ({ isName, title, url }) => {
   const navigate = useNavigate()
 
   const [name, setName] = useState<string>()
@@ -23,7 +24,7 @@ export const Card: React.FC<IProps> = ({ isName, title }) => {
 
   const handleSingUp = useCallback(async () => {
     setIsLoading(true)
-    const res = await post({ name, email, password }, "/user/register")
+    const res = await post({ name, email, password }, url)
     const result = usePost(res)
 
     if (result.isError) {
