@@ -11,7 +11,7 @@ export const Login: React.FC = () => {
         isRecoverPasswordLink={true}
       />
 
-      {window.innerWidth > 1000 ? <S.LoginImage /> : ""}
+      {window.innerWidth > 1000 ? <S.LoginImage role="figure" /> : ""}
     </S.ContainerLogin>
   )
 }
