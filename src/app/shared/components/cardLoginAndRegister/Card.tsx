@@ -9,9 +9,10 @@ import { Buttons, Exit, Form } from "./components"
 
 interface IProps {
   isName: boolean
+  title: string
 }
 
-export const Card: React.FC<IProps> = ({ isName }) => {
+export const Card: React.FC<IProps> = ({ isName, title }) => {
   const navigate = useNavigate()
 
   const [name, setName] = useState<string>()
@@ -46,7 +47,7 @@ export const Card: React.FC<IProps> = ({ isName }) => {
     <S.ContainerCard>
       {isLoading && <LoadingPage />}
       <Exit />
-      <h1>Register</h1>
+      <h1>{title}</h1>
 
       <Form
         error={error}
