@@ -4,7 +4,12 @@ import * as S from "./register.styles"
 export const Register: React.FC = () => {
   return (
     <S.ContainerRegister>
-      <Card isName={true} title="Register" url="/user/register" />
+      <Card
+        isName={true}
+        title="Register"
+        url="/user/register"
+        isRecoverPasswordLink={false}
+      />
 
       {window.innerWidth > 1000 ? <S.RegisterImage role="figure" /> : ""}
     </S.ContainerRegister>

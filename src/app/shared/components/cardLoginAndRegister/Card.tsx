@@ -11,9 +11,15 @@ interface IProps {
   isName: boolean
   title: string
   url: string
+  isRecoverPasswordLink: boolean
 }
 
-export const Card: React.FC<IProps> = ({ isName, title, url }) => {
+export const Card: React.FC<IProps> = ({
+  isName,
+  title,
+  url,
+  isRecoverPasswordLink
+}) => {
   const navigate = useNavigate()
 
   const [name, setName] = useState<string>()
@@ -58,7 +64,13 @@ export const Card: React.FC<IProps> = ({ isName, title, url }) => {
         setPassword={setPassword}
       />
 
-      <Buttons handleLogin={handleLogin} handleSingUp={handleSingUp} />
+      <Buttons
+        handleLogin={handleLogin}
+        handleSingUp={handleSingUp}
+        buttonOneTxt="Sing up"
+        buttonTwoTxt="Log in"
+        isRecoverPasswordLink={isRecoverPasswordLink}
+      />
     </S.ContainerCard>
   )
 }
