@@ -1,9 +1,6 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { Card } from "./Card"
-import { Api } from "../../service"
 
-import axios from "axios"
-const mockAxios = axios as jest.Mocked<typeof axios>
 jest.mock("axios")
 
 const mockNavigate = jest.fn()
@@ -62,37 +59,37 @@ describe("<Card />", () => {
       expect(mockNavigate).toBeCalledWith("/login")
     })
 
-    // it("Should call the function handleSingUp correctly", async () => {
-    //   mockUsePost()
-    //   render(<Card isName={true} />)
-
-    //   const singUpButton = screen.getByText("Sing up")
-    //   fireEvent.click(singUpButton)
-
-    //   await waitFor(() => {
-    //     expect(mockNavigate).toBeCalledWith("/login")
-    //   })
-    // })
-
-    it("Should call the function handleSingUp and return a error", async () => {
-      const responseData = {
-        response: {
-          data: {
-            error: ["Error in input name"]
-          }
-        }
-      }
+    it("Should call the function handleSingUp without errors", async () => {
       mockUsePost.mockReturnValueOnce({
-        data: responseData,
-        isError: true
+        data: {},
+        isError: false
       })
 
-      // Mockando a resposta para useAuthenticate
+      render(<Card isName={true} />)
+
+      const singUpButton = screen.getByText("Sing up")
+      fireEvent.click(singUpButton)
+
+      await waitFor(() => {
+        expect(mockNavigate).toBeCalledWith("/login")
+      })
+    })
+
+    it("Should call the function handleSingUp and return a error", async () => {
       const authenticateErrors = {
         name: ["Error in input name"],
         email: [],
         password: []
       }
+
+      mockUsePost.mockReturnValueOnce({
+        data: {
+          response: {
+            data: {}
+          }
+        },
+        isError: true
+      })
       mockUseAuthenticate.mockReturnValueOnce(authenticateErrors)
 
       render(<Card isName={true} />)
@@ -101,9 +98,10 @@ describe("<Card />", () => {
       fireEvent.click(singUpButton)
 
       await waitFor(() => {
-        const nameErrors = screen.getByText("Error in input name")
+        const nameErrors = screen.getByText(authenticateErrors.name[0])
 
         expect(nameErrors).toBeInTheDocument()
+        expect(nameErrors).toHaveTextContent(authenticateErrors.name[0])
       })
     })
   })
