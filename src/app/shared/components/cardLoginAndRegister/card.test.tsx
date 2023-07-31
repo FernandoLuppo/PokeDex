@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react"
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { Card } from "./Card"
 
 jest.mock("axios")
@@ -19,24 +19,38 @@ jest.mock("../../hook/errors/useAuthenticate.ts", () => ({
   useAuthenticate: (values: string[] | string) => mockUseAuthenticate(values)
 }))
 
+afterEach(() => {
+  mockNavigate.mockClear()
+  mockUsePost.mockClear()
+  mockUseAuthenticate.mockClear()
+})
+
 describe("<Card />", () => {
   describe("Should be in the document", () => {
     it("Components should be in the document", () => {
       render(
         <Card
-          isName={true}
+          isName={false}
           title="Register"
-          url="user/register"
+          url="/user/register"
+          buttonLink="/login"
+          navigateLink="/login"
+          buttonOneTxt="Log in"
+          buttonTwoTxt="Sing up"
           isRecoverPasswordLink={false}
         />
       )
 
       const exitElement = screen.getByText("Home")
       const formElement = screen.getByPlaceholderText("Example: red@gmail.com")
+      const formNameElement = screen.queryByPlaceholderText(
+        "Example: Ash Ketchum"
+      )
       const buttonsElement = screen.getByRole("button", { name: "Sing up" })
 
       expect(exitElement).toBeInTheDocument()
       expect(formElement).toBeInTheDocument()
+      expect(formNameElement).toBeNull()
       expect(buttonsElement).toBeInTheDocument()
     })
 
@@ -45,7 +59,11 @@ describe("<Card />", () => {
         <Card
           isName={true}
           title="Register"
-          url="user/register"
+          url="/user/register"
+          buttonLink="/login"
+          navigateLink="/login"
+          buttonOneTxt="Log in"
+          buttonTwoTxt="Sing up"
           isRecoverPasswordLink={false}
         />
       )
@@ -64,23 +82,33 @@ describe("<Card />", () => {
     })
   })
   describe("Functions should be work correctly", () => {
-    it("Should call the function handleLogin correctly", () => {
+    it("Should call the function handleNavigate correctly", async () => {
+      mockUsePost.mockReturnValueOnce({
+        data: {},
+        isError: false
+      })
       render(
         <Card
           isName={true}
           title="Register"
-          url="user/register"
+          url="/user/register"
+          buttonLink="/login"
+          navigateLink="/login"
+          buttonOneTxt="Log in"
+          buttonTwoTxt="Sing up"
           isRecoverPasswordLink={false}
         />
       )
 
       const loginButton = screen.getByText("Log in")
-      fireEvent.click(loginButton)
+      await act(async () => {
+        fireEvent.click(loginButton)
+      })
 
       expect(mockNavigate).toBeCalledWith("/login")
     })
 
-    it("Should call the function handleSingUp without errors", async () => {
+    it("Should call the function handleClick without errors", async () => {
       mockUsePost.mockReturnValueOnce({
         data: {},
         isError: false
@@ -90,13 +118,19 @@ describe("<Card />", () => {
         <Card
           isName={true}
           title="Register"
-          url="user/register"
+          url="/user/register"
+          buttonLink="/login"
+          navigateLink="/login"
+          buttonOneTxt="Sing up"
+          buttonTwoTxt="Log in"
           isRecoverPasswordLink={false}
         />
       )
 
       const singUpButton = screen.getByText("Sing up")
-      fireEvent.click(singUpButton)
+      await act(async () => {
+        fireEvent.click(singUpButton)
+      })
 
       await waitFor(() => {
         expect(mockNavigate).toBeCalledWith("/login")
@@ -124,12 +158,16 @@ describe("<Card />", () => {
         <Card
           isName={true}
           title="Register"
-          url="user/register"
+          url="/user/register"
+          buttonLink="/login"
+          navigateLink="/login"
+          buttonOneTxt="Log in"
+          buttonTwoTxt="Sing up"
           isRecoverPasswordLink={false}
         />
       )
 
-      const singUpButton = screen.getByText("Sing up")
+      const singUpButton = screen.getByText("Log in")
       fireEvent.click(singUpButton)
 
       await waitFor(() => {

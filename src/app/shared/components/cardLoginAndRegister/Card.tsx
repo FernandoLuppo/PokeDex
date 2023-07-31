@@ -12,13 +12,21 @@ interface IProps {
   title: string
   url: string
   isRecoverPasswordLink: boolean
+  buttonOneTxt: string
+  buttonTwoTxt: string
+  buttonLink: string
+  navigateLink: string
 }
 
 export const Card: React.FC<IProps> = ({
   isName,
   title,
   url,
-  isRecoverPasswordLink
+  isRecoverPasswordLink,
+  buttonOneTxt,
+  buttonTwoTxt,
+  buttonLink,
+  navigateLink
 }) => {
   const navigate = useNavigate()
 
@@ -28,7 +36,7 @@ export const Card: React.FC<IProps> = ({
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState<IUseAuthenticate>()
 
-  const handleSingUp = useCallback(async () => {
+  const handleClick = useCallback(async () => {
     setIsLoading(true)
     const res = await post({ name, email, password }, url)
     const result = usePost(res)
@@ -43,11 +51,11 @@ export const Card: React.FC<IProps> = ({
     }
 
     setIsLoading(false)
-    navigate("/login")
+    navigate(buttonLink)
   }, [name, email, password, isLoading])
 
-  const handleLogin = useCallback(() => {
-    navigate("/login")
+  const handleNavigate = useCallback(() => {
+    navigate(navigateLink)
   }, [])
 
   return (
@@ -65,10 +73,10 @@ export const Card: React.FC<IProps> = ({
       />
 
       <Buttons
-        handleLogin={handleLogin}
-        handleSingUp={handleSingUp}
-        buttonOneTxt="Sing up"
-        buttonTwoTxt="Log in"
+        handleClick={handleClick}
+        handleNavigate={handleNavigate}
+        buttonOneTxt={buttonOneTxt}
+        buttonTwoTxt={buttonTwoTxt}
         isRecoverPasswordLink={isRecoverPasswordLink}
       />
     </S.ContainerCard>

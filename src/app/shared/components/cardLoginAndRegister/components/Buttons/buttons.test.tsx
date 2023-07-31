@@ -12,8 +12,8 @@ describe("<Buttons />", () => {
   it("Buttons should be in the document", () => {
     render(
       <Buttons
-        handleLogin={() => {}}
-        handleSingUp={() => {}}
+        handleClick={() => {}}
+        handleNavigate={() => {}}
         buttonOneTxt="Sing up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={false}
@@ -30,13 +30,13 @@ describe("<Buttons />", () => {
   })
 
   it("Should call the click functions", () => {
-    const mockHandleLogin = jest.fn()
-    const mockHandleSingUp = jest.fn()
+    const mockHandleClick = jest.fn()
+    const mockHandleNavigate = jest.fn()
 
     render(
       <Buttons
-        handleLogin={mockHandleLogin}
-        handleSingUp={mockHandleSingUp}
+        handleClick={mockHandleClick}
+        handleNavigate={mockHandleNavigate}
         buttonOneTxt="Sing up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={false}
@@ -47,18 +47,18 @@ describe("<Buttons />", () => {
     const login = screen.getByRole("button", { name: "Log in" })
 
     fireEvent.click(singUp)
-    expect(mockHandleSingUp).toBeCalledTimes(1)
+    expect(mockHandleClick).toBeCalledTimes(1)
 
     fireEvent.click(login)
-    expect(mockHandleLogin).toBeCalledTimes(1)
+    expect(mockHandleNavigate).toBeCalledTimes(1)
   })
 
   it("Should render the new button state if screen is lower than 365px", () => {
     Object.defineProperty(window, "innerWidth", { value: 364 })
     render(
       <Buttons
-        handleLogin={() => {}}
-        handleSingUp={() => {}}
+        handleClick={() => {}}
+        handleNavigate={() => {}}
         buttonOneTxt="Sing up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={false}
@@ -77,8 +77,8 @@ describe("<Buttons />", () => {
   it("Should be in the document the recover password link if isRecoverPasswordLink is true", () => {
     render(
       <Buttons
-        handleLogin={() => {}}
-        handleSingUp={() => {}}
+        handleClick={() => {}}
+        handleNavigate={() => {}}
         buttonOneTxt="Sing up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={true}
@@ -95,8 +95,8 @@ describe("<Buttons />", () => {
   it("Should call the handleRecoverPassword function when user click in recover password link", () => {
     render(
       <Buttons
-        handleLogin={() => {}}
-        handleSingUp={() => {}}
+        handleClick={() => {}}
+        handleNavigate={() => {}}
         buttonOneTxt="Sing up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={true}

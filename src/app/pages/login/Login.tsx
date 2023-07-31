@@ -8,6 +8,10 @@ export const Login: React.FC = () => {
         isName={false}
         title="Login"
         url="user/login"
+        buttonLink="/"
+        navigateLink="/register"
+        buttonOneTxt="Log in"
+        buttonTwoTxt="Sing up"
         isRecoverPasswordLink={true}
       />
 

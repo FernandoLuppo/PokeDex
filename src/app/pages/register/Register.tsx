@@ -8,6 +8,10 @@ export const Register: React.FC = () => {
         isName={true}
         title="Register"
         url="/user/register"
+        buttonLink="/login"
+        navigateLink="/login"
+        buttonOneTxt="Sing up"
+        buttonTwoTxt="Log in"
         isRecoverPasswordLink={false}
       />
 

@@ -4,16 +4,16 @@ import { useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 
 interface IProps {
-  handleSingUp: () => void
-  handleLogin: () => void
+  handleClick: () => void
+  handleNavigate: () => void
   buttonOneTxt: string
   buttonTwoTxt: string
   isRecoverPasswordLink: boolean
 }
 
 export const Buttons: React.FC<IProps> = ({
-  handleSingUp,
-  handleLogin,
+  handleClick,
+  handleNavigate,
   buttonOneTxt,
   buttonTwoTxt,
   isRecoverPasswordLink
@@ -27,11 +27,11 @@ export const Buttons: React.FC<IProps> = ({
   return (
     <S.ContainerButtons>
       {window.innerWidth > 365 ? (
-        <BigButton onClick={handleSingUp} text={buttonOneTxt} />
+        <BigButton onClick={handleClick} text={buttonOneTxt} />
       ) : (
-        <Button onClick={handleSingUp} text={buttonOneTxt} />
+        <Button onClick={handleNavigate} text={buttonOneTxt} />
       )}
-      <button onClick={handleLogin}>{buttonTwoTxt}</button>
+      <button onClick={handleNavigate}>{buttonTwoTxt}</button>
 
       {isRecoverPasswordLink && (
         <button onClick={handleRecoverPassword}>Recover your password</button>
