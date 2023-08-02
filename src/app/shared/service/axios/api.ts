@@ -1,4 +1,4 @@
-import { Api } from "../../service"
+import { Api } from "./apiConfig"
 import type { IResponse, IResponseValidationError } from "../../types"
 
 export const get = async (
