@@ -1,11 +1,9 @@
-export const useCookies = (cookieName: string): string | undefined => {
-  const value = `; ${document.cookie}`
-  const parts = value.split(`; ${cookieName}=`)
+export const useCookies = (): { access: string; refresh: string } => {
+  const cookieString = document.cookie
 
-  console.log("useCookies: value", value)
-  console.log("useCookies: parts", parts)
+  const cookieParts = cookieString.split("; ")
 
-  if (parts.length === 2) {
-    return parts.pop()?.split(";").shift()
-  }
+  const access = cookieParts[0]
+  const refresh = cookieParts[1]
+  return { access, refresh }
 }

@@ -1,5 +1,5 @@
 import * as S from "./buttons.styles"
-import { Button, BigButton } from "../../../buttons"
+import { Button, SecondaryButton } from "../../../"
 import { useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -27,14 +27,22 @@ export const Buttons: React.FC<IProps> = ({
   return (
     <S.ContainerButtons>
       {window.innerWidth > 365 ? (
-        <BigButton onClick={handleClick} text={buttonOneTxt} />
+        <Button onClick={handleClick} text={buttonOneTxt} isBig={true} />
       ) : (
-        <Button onClick={handleNavigate} text={buttonOneTxt} />
+        <Button onClick={handleClick} text={buttonOneTxt} isBig={false} />
       )}
-      <button onClick={handleNavigate}>{buttonTwoTxt}</button>
+      <SecondaryButton
+        onClick={handleNavigate}
+        isBig={true}
+        text={buttonTwoTxt}
+      />
 
       {isRecoverPasswordLink && (
-        <button onClick={handleRecoverPassword}>Recover your password</button>
+        <SecondaryButton
+          onClick={handleRecoverPassword}
+          text="Recover your password"
+          isBig={true}
+        />
       )}
     </S.ContainerButtons>
   )

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
-
 import { AuthContext } from "./AuthContext"
-import { useCookies } from "../../hook"
 import { get } from "../../service"
+import { useCookies } from "../../hook"
 
 export const AuthProvider = ({
   children
@@ -14,15 +13,14 @@ export const AuthProvider = ({
 
   useEffect(() => {
     const validateCookie = (): void => {
-      const accessTokenValue = useCookies("accessToken")
-      const refreshTokenValue = useCookies("refreshToken")
+      const { access, refresh } = useCookies()
 
-      if (accessTokenValue === undefined || refreshTokenValue === undefined) {
+      if (access === undefined || refresh === undefined) {
         return
       }
 
-      setAccessToken(accessTokenValue)
-      setRefreshToken(refreshTokenValue)
+      setAccessToken(access)
+      setRefreshToken(refresh)
     }
     validateCookie()
   }, [accessToken, refreshToken])

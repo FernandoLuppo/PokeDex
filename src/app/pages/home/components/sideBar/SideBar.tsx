@@ -1,6 +1,6 @@
 import * as S from "./SideBar.styles"
-import { Filter } from "./components"
-import { Logout, UserMenu } from "../../../../shared/components"
+import { Filter, UserMenu } from "./components"
+import { Logout } from "../../../../shared/components"
 
 export const SideBar: React.FC = () => {
   return (

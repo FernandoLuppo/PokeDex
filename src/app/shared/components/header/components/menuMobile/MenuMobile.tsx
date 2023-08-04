@@ -1,6 +1,7 @@
 import * as S from "./menuMobile.styles"
 import { IoMdClose } from "react-icons/io"
-import { UserMenu, Logout } from "../../.."
+import { Logout } from "../../.."
+import { UserMenu } from "../../../../../pages/home/components/sideBar/components"
 
 interface IMenuMobileProps {
   menuIsVisible: boolean

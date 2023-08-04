@@ -8,23 +8,6 @@ export const ContainerButtons = styled.div`
   align-items: center;
   gap: 22px;
 
-  button:nth-child(2) {
-    cursor: pointer;
-    border: none;
-    font-size: ${Theme.font.size.main.l};
-    text-decoration: underline;
-    color: ${Theme.colors.primary};
-    background: none;
-
-    &:hover {
-      color: ${Theme.colors.primaryHover};
-    }
-
-    @media (max-width: 365px) {
-      font-size: ${Theme.font.size.main.m};
-    }
-  }
-
   button:nth-child(3) {
     cursor: pointer;
     font-size: ${Theme.font.size.main.xs};

@@ -51,7 +51,6 @@ describe("<Header />", () => {
     const menuMobile = screen.getByText("Log out")
 
     const closeButtons = screen.getAllByRole("button")
-    console.log("ola", closeButtons)
     const closeButton = closeButtons.find(
       button => button.style.color === "#f2f2f2"
     )

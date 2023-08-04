@@ -1,8 +1,9 @@
 import styled from "styled-components"
-import { Theme } from "../../theme"
+import { Theme } from "../../../../../../shared/theme"
 
 export const ContainerUser = styled.div`
   width: 100%;
+  height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,6 +17,17 @@ export const ContainerUser = styled.div`
     color: ${Theme.font.colors.text1};
   }
 
+  @media (max-width: 900px) {
+    height: 291px;
+    border-bottom: none;
+    box-shadow: none;
+
+    p {
+      margin-bottom: 5px;
+    }
+  }
+`
+export const ContainerMyProfileButton = styled.div`
   div > button {
     cursor: pointer;
     height: 50px;
@@ -32,16 +44,6 @@ export const ContainerUser = styled.div`
   div > button:hover {
     background: ${Theme.colors.primaryHover};
     box-shadow: none;
-  }
-
-  @media (max-width: 900px) {
-    height: 291px;
-    border-bottom: none;
-    box-shadow: none;
-
-    p {
-      margin-bottom: 5px;
-    }
   }
 `
 
@@ -61,5 +63,16 @@ export const ContainerUserImg = styled.div`
     width: 125px;
     min-height: 125px;
     margin-bottom: 5px;
+  }
+`
+
+export const ContainerIsNotLogged = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  button:first-child {
+    margin: 0;
   }
 `
