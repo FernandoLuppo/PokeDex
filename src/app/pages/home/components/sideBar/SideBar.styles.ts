@@ -2,6 +2,8 @@ import { styled } from "styled-components"
 import { Theme } from "../../../../shared/theme"
 
 export const ContainerSideBar = styled.div`
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 370px;
   height: 100vh;

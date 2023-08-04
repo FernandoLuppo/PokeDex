@@ -2,11 +2,9 @@ import { styled } from "styled-components"
 import { Theme } from "../../theme"
 
 export const SideBarLogout = styled.div`
-  position: absolute;
   display: flex;
-  justify-content: center !important;
+  justify-content: center;
   align-items: center;
-  bottom: 0;
   width: 100%;
   height: 68px;
   border-top: 1px solid ${Theme.colors.others.lineTwo};

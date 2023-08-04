@@ -3,7 +3,7 @@ import { Theme } from "../../../../../../shared/theme"
 
 export const ContainerUser = styled.div`
   width: 100%;
-  height: 120px;
+  height: 121px;
   display: flex;
   flex-direction: column;
   justify-content: center;
