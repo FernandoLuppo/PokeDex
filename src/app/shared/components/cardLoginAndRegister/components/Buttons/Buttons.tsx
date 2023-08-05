@@ -27,13 +27,13 @@ export const Buttons: React.FC<IProps> = ({
   return (
     <S.ContainerButtons>
       {window.innerWidth > 365 ? (
-        <Button onClick={handleClick} text={buttonOneTxt} isBig={true} />
+        <Button onClick={handleClick} text={buttonOneTxt} isbig={true} />
       ) : (
-        <Button onClick={handleClick} text={buttonOneTxt} isBig={false} />
+        <Button onClick={handleClick} text={buttonOneTxt} isbig={false} />
       )}
       <SecondaryButton
         onClick={handleNavigate}
-        isBig={true}
+        isbig={true}
         text={buttonTwoTxt}
       />
 
@@ -41,7 +41,7 @@ export const Buttons: React.FC<IProps> = ({
         <SecondaryButton
           onClick={handleRecoverPassword}
           text="Recover your password"
-          isBig={true}
+          isbig={true}
         />
       )}
     </S.ContainerButtons>

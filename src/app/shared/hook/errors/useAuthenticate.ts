@@ -6,12 +6,17 @@ export const useAuthenticate = (
   const name: string[] = []
   const email: string[] = []
   const password: string[] = []
+  let incorrectCredentials: string = ""
 
   function isString(value: any): value is string {
     return typeof value === "string"
   }
 
   if (isString(values)) {
+    if (values === "Email or password incorrect") {
+      incorrectCredentials = values
+      return { name, email, password, incorrectCredentials }
+    }
     email.push(values)
     return { name, email, password }
   }

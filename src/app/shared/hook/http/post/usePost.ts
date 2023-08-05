@@ -1,15 +1,9 @@
-import type {
-  IIsResult,
-  IResponse,
-  IResponseValidationError
-} from "../../types"
+import type { IIsResult, IResponse } from "../../../types"
 
 export const usePost = (value: any): IIsResult => {
   const result = { data: {}, isError: false }
 
-  function separator(
-    data: IResponseValidationError | IResponse
-  ): data is IResponse {
+  function separator(data: any | IResponse): data is IResponse {
     return "data" in data
   }
 

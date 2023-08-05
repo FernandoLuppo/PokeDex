@@ -4,8 +4,8 @@ import { Logout } from "../../.."
 import { UserMenu } from "../../../../../pages/home/components/sideBar/components"
 
 interface IMenuMobileProps {
-  menuIsVisible: "true" | "false"
-  setMenuIsVisible: React.Dispatch<React.SetStateAction<"true" | "false">>
+  menuIsVisible: boolean | null
+  setMenuIsVisible: React.Dispatch<React.SetStateAction<boolean | null>>
 }
 
 export const MenuMobile: React.FC<IMenuMobileProps> = ({
@@ -21,7 +21,8 @@ export const MenuMobile: React.FC<IMenuMobileProps> = ({
         size={40}
         onClick={() => {
           console.log("ola")
-          setMenuIsVisible("false")
+          setMenuIsVisible(false)
+          menuIsVisible = false
           console.log(menuIsVisible)
         }}
       />

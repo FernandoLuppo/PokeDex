@@ -47,6 +47,12 @@ export const Form: React.FC<IProps> = props => {
           props.setPassword(e.target.value)
         }}
       />
+
+      {props.error?.incorrectCredentials === "Email or password incorrect" && (
+        <S.ContainerIncorrectCredentials>
+          <p>{props.error?.incorrectCredentials}</p>
+        </S.ContainerIncorrectCredentials>
+      )}
     </S.ContainerForm>
   )
 }

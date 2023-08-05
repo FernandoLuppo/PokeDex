@@ -9,10 +9,14 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockNavigate
 }))
 
-const mockUsePost = jest.fn()
-jest.mock("../../hook/post/usePost.ts", () => ({
-  usePost: (value: any) => mockUsePost(value)
-}))
+const mockUsePostToValidatedRoutes = jest.fn()
+jest.mock(
+  "../../hook/post/postToValidatedRoutes/usePostToValidatedRoutes.ts",
+  () => ({
+    usePostToValidatedRoutes: (value: any) =>
+      mockUsePostToValidatedRoutes(value)
+  })
+)
 
 const mockUseAuthenticate = jest.fn()
 jest.mock("../../hook/errors/useAuthenticate.ts", () => ({
@@ -21,7 +25,7 @@ jest.mock("../../hook/errors/useAuthenticate.ts", () => ({
 
 afterEach(() => {
   mockNavigate.mockClear()
-  mockUsePost.mockClear()
+  mockUsePostToValidatedRoutes.mockClear()
   mockUseAuthenticate.mockClear()
 })
 
@@ -83,7 +87,7 @@ describe("<Card />", () => {
   })
   describe("Functions should be work correctly", () => {
     it("Should call the function handleNavigate correctly", async () => {
-      mockUsePost.mockReturnValueOnce({
+      mockUsePostToValidatedRoutes.mockReturnValueOnce({
         data: {},
         isError: false
       })
@@ -109,7 +113,7 @@ describe("<Card />", () => {
     })
 
     it("Should call the function handleClick without errors", async () => {
-      mockUsePost.mockReturnValueOnce({
+      mockUsePostToValidatedRoutes.mockReturnValueOnce({
         data: {},
         isError: false
       })
@@ -144,7 +148,7 @@ describe("<Card />", () => {
         password: []
       }
 
-      mockUsePost.mockReturnValueOnce({
+      mockUsePostToValidatedRoutes.mockReturnValueOnce({
         data: {
           response: {
             data: {}

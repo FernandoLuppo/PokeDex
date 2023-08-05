@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { LoadingPage } from "../index"
 import { useCallback, useState } from "react"
 import { post } from "../../service"
-import { usePost, useAuthenticate } from "../../hook"
+import { useAuthenticate, usePost } from "../../hook"
 import { Buttons, Exit, Form } from "./components"
 
 interface IProps {
@@ -39,6 +39,7 @@ export const Card: React.FC<IProps> = ({
   const handleClick = useCallback(async () => {
     setIsLoading(true)
     const res = await post({ name, email, password }, url)
+
     const result = usePost(res)
 
     if (result.isError) {

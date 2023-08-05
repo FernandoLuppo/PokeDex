@@ -1,7 +1,7 @@
 import { styled, css } from "styled-components"
 import { Theme } from "../../../../theme"
 
-export const containerMenuMobile = styled.div<{ isvisible: "true" | "false" }>`
+export const containerMenuMobile = styled.div<{ isvisible: boolean | null }>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -30,7 +30,7 @@ export const containerMenuMobile = styled.div<{ isvisible: "true" | "false" }>`
   }
 
   ${({ isvisible }) =>
-    isvisible === "true" &&
+    isvisible === false &&
     css`
       opacity: 1;
       animation: menuMobileOut 1s forwards;

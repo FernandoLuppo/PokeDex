@@ -1,14 +1,12 @@
 import { Api } from "./apiConfig"
-import type { IResponse, IResponseValidationError } from "../../types"
+import type { IResponse } from "../../types"
 
-export const get = async (
-  url: string
-): Promise<IResponse | IResponseValidationError> => {
+export const get = async (url: string): Promise<IResponse | any> => {
   try {
     const data: IResponse = await Api().get(`${url}`)
     return data
   } catch (err) {
-    const error = err as IResponseValidationError
+    const error = err as any
     return error
   }
 }
@@ -16,25 +14,22 @@ export const get = async (
 export const post = async (
   info: any,
   url: string
-): Promise<IResponse | IResponseValidationError> => {
+): Promise<IResponse | any> => {
   try {
     const data: IResponse = await Api().post(`${url}`, info)
     return data
   } catch (err) {
-    const error = err as IResponseValidationError
+    const error = err as any
     return error
   }
 }
 
-export const put = async (
-  info: any,
-  url: string
-): Promise<IResponse | IResponseValidationError> => {
+export const put = async (info: any, url: string): Promise<IResponse | any> => {
   try {
     const data: IResponse = await Api().put(`${url}`, info)
     return data
   } catch (err) {
-    const error = err as IResponseValidationError
+    const error = err as any
     return error
   }
 }
@@ -42,12 +37,12 @@ export const put = async (
 export const exclude = async (
   info: any,
   url: string
-): Promise<IResponse | IResponseValidationError> => {
+): Promise<IResponse | any> => {
   try {
     const data: IResponse = await Api().delete(`${url}`, info)
     return data
   } catch (err) {
-    const error = err as IResponseValidationError
+    const error = err as any
     return error
   }
 }
