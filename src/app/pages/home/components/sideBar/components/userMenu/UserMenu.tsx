@@ -37,7 +37,7 @@ export const UserMenu: React.FC = () => {
     navigate("/login")
   }
   return (
-    <S.ContainerUser isLogged={isLogged}>
+    <S.ContainerUser islogged={isLogged}>
       {isLogged ? (
         <>
           <S.ContainerUserImg>
@@ -45,13 +45,13 @@ export const UserMenu: React.FC = () => {
           </S.ContainerUserImg>
           <p>{userInfos?.data.data.name}</p>
           <S.ContainerMyProfileButton>
-            <Button isBig={false} text="My Profile" />
+            <Button isbig={false} text="My Profile" />
           </S.ContainerMyProfileButton>
         </>
       ) : (
-        <S.ContainerUser isLogged={isLogged}>
-          <Button text="Sing up" isBig={false} onClick={handleSingUp} />
-          <SecondaryButton text="Log in" isBig={false} onClick={handleLogin} />
+        <S.ContainerUser islogged={isLogged}>
+          <Button text="Sing up" isbig={false} onClick={handleSingUp} />
+          <SecondaryButton text="Log in" isbig={false} onClick={handleLogin} />
         </S.ContainerUser>
       )}
     </S.ContainerUser>

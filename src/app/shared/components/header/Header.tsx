@@ -5,7 +5,7 @@ import { useState } from "react"
 import { AiOutlineMenu } from "react-icons/ai"
 
 export const Header: React.FC = () => {
-  const [menuIsVisible, setMenuIsVisible] = useState<boolean>(false)
+  const [menuIsVisible, setMenuIsVisible] = useState<"false" | "true">("false")
 
   return (
     <S.Header>
@@ -22,12 +22,12 @@ export const Header: React.FC = () => {
           size={40}
           color="#f2f2f2"
           onClick={() => {
-            setMenuIsVisible(true)
+            setMenuIsVisible("true")
           }}
         />
       )}
 
-      {menuIsVisible && (
+      {menuIsVisible === "true" && (
         <MenuMobile
           menuIsVisible={menuIsVisible}
           setMenuIsVisible={setMenuIsVisible}

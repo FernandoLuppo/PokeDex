@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 import { Theme } from "../../../../../../shared/theme"
 
-export const ContainerUser = styled.div<{ isLogged: boolean }>`
+export const ContainerUser = styled.div<{ islogged: boolean }>`
   width: 100%;
   height: 121px;
   display: flex;
@@ -28,8 +28,8 @@ export const ContainerUser = styled.div<{ isLogged: boolean }>`
     }
   }
 
-  ${({ isLogged }) =>
-    isLogged &&
+  ${({ islogged }) =>
+    islogged &&
     css`
       height: auto;
     `}

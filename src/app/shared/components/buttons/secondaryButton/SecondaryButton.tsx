@@ -1,13 +1,13 @@
 import * as S from "./secondaryButton.styles"
 import type { IButtonsProps } from "../../../types"
 
-export const SecondaryButton: React.FC<IButtonsProps & { isBig: boolean }> = ({
+export const SecondaryButton: React.FC<IButtonsProps & { isbig: boolean }> = ({
   text,
-  isBig,
+  isbig,
   ...rest
 }) => {
   return (
-    <S.SecondaryButton {...rest} isBig={isBig}>
+    <S.SecondaryButton {...rest} isbig={isbig}>
       {text}
     </S.SecondaryButton>
   )

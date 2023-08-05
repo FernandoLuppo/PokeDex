@@ -1,7 +1,7 @@
 import { css, styled } from "styled-components"
 import { Theme } from "../../../theme"
 
-export const Button = styled.button<{ isBig: boolean }>`
+export const Button = styled.button<{ isbig: boolean }>`
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -20,8 +20,8 @@ export const Button = styled.button<{ isBig: boolean }>`
     box-shadow: none;
   }
 
-  ${({ isBig }) =>
-    isBig &&
+  ${({ isbig }) =>
+    isbig &&
     css`
       height: 70px;
       padding: 0 50px;

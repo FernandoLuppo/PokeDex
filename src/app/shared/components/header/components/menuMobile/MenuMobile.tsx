@@ -4,8 +4,8 @@ import { Logout } from "../../.."
 import { UserMenu } from "../../../../../pages/home/components/sideBar/components"
 
 interface IMenuMobileProps {
-  menuIsVisible: boolean
-  setMenuIsVisible: (isVisible: boolean) => void
+  menuIsVisible: "true" | "false"
+  setMenuIsVisible: React.Dispatch<React.SetStateAction<"true" | "false">>
 }
 
 export const MenuMobile: React.FC<IMenuMobileProps> = ({
@@ -14,14 +14,14 @@ export const MenuMobile: React.FC<IMenuMobileProps> = ({
 }) => {
   console.log(menuIsVisible)
   return (
-    <S.containerMenuMobile isVisible={menuIsVisible}>
+    <S.containerMenuMobile isvisible={menuIsVisible}>
       <IoMdClose
         role="button"
         color="#f2f2f2"
         size={40}
         onClick={() => {
           console.log("ola")
-          setMenuIsVisible(false)
+          setMenuIsVisible("false")
           console.log(menuIsVisible)
         }}
       />

@@ -1,7 +1,7 @@
 import { css, styled } from "styled-components"
 import { Theme } from "../../../theme"
 
-export const SecondaryButton = styled.button<{ isBig: boolean }>`
+export const SecondaryButton = styled.button<{ isbig: boolean }>`
   cursor: pointer;
   border: none;
   font-size: ${Theme.font.size.main.s};
@@ -17,8 +17,8 @@ export const SecondaryButton = styled.button<{ isBig: boolean }>`
     font-size: ${Theme.font.size.main.m};
   }
 
-  ${({ isBig }) =>
-    isBig &&
+  ${({ isbig }) =>
+    isbig &&
     css`
       font-size: ${Theme.font.size.main.l};
     `}
