@@ -4,7 +4,7 @@ import { Theme } from "../../../theme"
 export const SecondaryButton = styled.button<{ isBig: boolean }>`
   cursor: pointer;
   border: none;
-  font-size: ${Theme.font.size.main.m};
+  font-size: ${Theme.font.size.main.s};
   text-decoration: underline;
   color: ${Theme.colors.primary};
   background: none;

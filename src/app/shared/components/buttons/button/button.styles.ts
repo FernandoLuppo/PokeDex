@@ -8,7 +8,7 @@ export const Button = styled.button<{ isBig: boolean }>`
   align-items: center;
   height: 50px;
   padding: 0 30px;
-  font-size: ${Theme.font.size.main.m};
+  font-size: ${Theme.font.size.main.s};
   border: none;
   border-radius: 10px;
   box-shadow: ${Theme.shadow.button};

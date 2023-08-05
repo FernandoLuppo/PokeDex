@@ -1,7 +1,7 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Theme } from "../../../../../../shared/theme"
 
-export const ContainerUser = styled.div`
+export const ContainerUser = styled.div<{ isLogged: boolean }>`
   width: 100%;
   height: 121px;
   display: flex;
@@ -10,9 +10,10 @@ export const ContainerUser = styled.div`
   align-items: center;
   border-bottom: 1px solid ${Theme.colors.others.lineTwo};
   box-shadow: inset 0 -1px 0 0 ${Theme.colors.others.lineOne};
+  padding: 20px 0;
+  gap: 10px;
 
   p {
-    margin-bottom: 15px;
     font-size: ${Theme.font.size.main.m};
     color: ${Theme.font.colors.text1};
   }
@@ -26,13 +27,18 @@ export const ContainerUser = styled.div`
       margin-bottom: 5px;
     }
   }
+
+  ${({ isLogged }) =>
+    isLogged &&
+    css`
+      height: auto;
+    `}
 `
 export const ContainerMyProfileButton = styled.div`
   div > button {
     cursor: pointer;
     height: 50px;
     padding: 0 30px;
-    margin-bottom: 25px;
     border: none;
     border-radius: 5px;
     font-size: ${Theme.font.size.main.m};
@@ -50,8 +56,6 @@ export const ContainerMyProfileButton = styled.div`
 export const ContainerUserImg = styled.div`
   width: 150px;
   height: 150px;
-  margin-top: 25px;
-  margin-bottom: 10px;
 
   img {
     border-radius: 10px;
@@ -62,7 +66,6 @@ export const ContainerUserImg = styled.div`
   @media (max-width: 900px) {
     width: 125px;
     min-height: 125px;
-    margin-bottom: 5px;
   }
 `
 

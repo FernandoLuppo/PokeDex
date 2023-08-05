@@ -12,14 +12,17 @@ export const MenuMobile: React.FC<IMenuMobileProps> = ({
   menuIsVisible,
   setMenuIsVisible
 }) => {
+  console.log(menuIsVisible)
   return (
     <S.containerMenuMobile isVisible={menuIsVisible}>
       <IoMdClose
         role="button"
         color="#f2f2f2"
-        size={25}
+        size={40}
         onClick={() => {
+          console.log("ola")
           setMenuIsVisible(false)
+          console.log(menuIsVisible)
         }}
       />
       <UserMenu />

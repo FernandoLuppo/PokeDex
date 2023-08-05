@@ -6,22 +6,41 @@ export const containerMenuMobile = styled.div<{ isVisible: boolean }>`
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
   z-index: 5;
   display: flex;
   flex-direction: column;
   background-color: ${Theme.colors.card};
+  animation: menuMobileIn 1s forwards;
+  z-index: 99;
+
+  @keyframes menuMobileIn {
+    from {
+      left: 0;
+    }
+    to {
+      left: 100%;
+    }
+  }
 
   svg {
     cursor: pointer;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 39px;
+    right: 20px;
   }
 
   ${({ isVisible }) =>
     isVisible &&
     css`
       opacity: 1;
+      animation: menuMobileOut 1s forwards;
+      @keyframes menuMobileOut {
+        from {
+          left: 100%;
+        }
+        to {
+          left: 0;
+        }
+      }
     `}
 `

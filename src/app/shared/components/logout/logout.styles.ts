@@ -24,6 +24,11 @@ export const SideBarLogout = styled.div`
   }
 
   @media (max-width: 900px) {
-    margin: auto;
+    position: absolute;
+    bottom: 0;
+
+    button {
+      margin: auto;
+    }
   }
 `

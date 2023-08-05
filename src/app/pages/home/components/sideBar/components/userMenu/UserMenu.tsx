@@ -3,33 +3,55 @@ import { AuthContext } from "../../../../../../shared/context"
 import userPhoto from "../../../../../../shared/image/user-photo.jpg"
 import * as S from "./userMenu.styles"
 import { Button, SecondaryButton } from "../../../../../../shared/components"
+import { useGet } from "../../../../../../shared/hook"
+import type { IResponse } from "../../../../../../shared/types"
+import { useNavigate } from "react-router-dom"
 
 export const UserMenu: React.FC = () => {
   const { accessToken } = useContext(AuthContext)
   const [isLogged, setIsLogged] = useState(false)
+  const [userInfos, setUserInfos] = useState<IResponse>()
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (accessToken !== undefined && accessToken !== null) {
       setIsLogged(true)
     }
+
+    useGet("/user/infos")
+      .then((user: any) => {
+        setUserInfos(user)
+        console.log(user)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }, [accessToken, isLogged])
 
+  const handleSingUp = (): void => {
+    navigate("/register")
+  }
+
+  const handleLogin = (): void => {
+    navigate("/login")
+  }
   return (
-    <S.ContainerUser>
+    <S.ContainerUser isLogged={isLogged}>
       {isLogged ? (
         <>
           <S.ContainerUserImg>
             <img src={userPhoto} alt="User Photo" />
           </S.ContainerUserImg>
-          <p>User Name</p>
+          <p>{userInfos?.data.data.name}</p>
           <S.ContainerMyProfileButton>
-            <button>My Profile</button>
+            <Button isBig={false} text="My Profile" />
           </S.ContainerMyProfileButton>
         </>
       ) : (
-        <S.ContainerUser>
-          <Button text="Sing up" isBig={false} />
-          <SecondaryButton text="Log in" isBig={false} />
+        <S.ContainerUser isLogged={isLogged}>
+          <Button text="Sing up" isBig={false} onClick={handleSingUp} />
+          <SecondaryButton text="Log in" isBig={false} onClick={handleLogin} />
         </S.ContainerUser>
       )}
     </S.ContainerUser>
