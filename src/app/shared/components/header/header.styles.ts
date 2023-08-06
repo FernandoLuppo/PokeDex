@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Theme } from "../../theme"
 
 export const Header = styled.header`
@@ -44,4 +44,48 @@ export const HeaderImg = styled.img`
     height: 33px;
     width: 33px;
   }
+`
+export const containerMenuMobile = styled.div<{ isvisible: boolean }>`
+  display: flex;
+  position: ${({ isvisible }) => (isvisible ? "absolute" : "fixed")};
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 5;
+  flex-direction: column;
+  background-color: ${Theme.colors.card};
+  animation: menuMobileIn 1s forwards;
+  z-index: 99;
+
+  @keyframes menuMobileIn {
+    from {
+      left: 100%;
+    }
+    to {
+      left: 0;
+    }
+  }
+
+  svg {
+    cursor: pointer;
+    position: absolute;
+    top: 39px;
+    right: 20px;
+  }
+
+  ${({ isvisible }) =>
+    !isvisible &&
+    css`
+      display: none;
+      opacity: 1;
+      animation: menuMobileOut 1s forwards;
+      @keyframes menuMobileOut {
+        from {
+          left: 0;
+        }
+        to {
+          left: 100%;
+        }
+      }
+    `}
 `

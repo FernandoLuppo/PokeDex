@@ -1,11 +1,14 @@
 import * as S from "./header.styles"
 import ultraBall from "../../image/ultra-ball.png"
-import { SearchBar, MenuMobile } from "./components"
+import { SearchBar } from "./components"
 import { useState } from "react"
 import { AiOutlineMenu } from "react-icons/ai"
+import { IoMdClose } from "react-icons/io"
+import { Logout } from ".."
+import { UserMenu } from "../../../pages/home/components/sideBar/components"
 
 export const Header: React.FC = () => {
-  const [menuIsVisible, setMenuIsVisible] = useState<boolean | null>(null)
+  const [menuIsVisible, setMenuIsVisible] = useState<boolean>(false)
 
   return (
     <S.Header>
@@ -27,12 +30,18 @@ export const Header: React.FC = () => {
         />
       )}
 
-      {menuIsVisible === true && (
-        <MenuMobile
-          menuIsVisible={menuIsVisible}
-          setMenuIsVisible={setMenuIsVisible}
+      <S.containerMenuMobile isvisible={menuIsVisible}>
+        <IoMdClose
+          role="button"
+          color="#f2f2f2"
+          size={40}
+          onClick={() => {
+            setMenuIsVisible(false)
+          }}
         />
-      )}
+        <UserMenu isLogged={false} userInfos={undefined} />
+        <Logout />
+      </S.containerMenuMobile>
     </S.Header>
   )
 }
