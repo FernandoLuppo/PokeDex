@@ -8,12 +8,12 @@ import { useGetUserInfos } from "../../../../shared/hook"
 
 export const SideBar: React.FC = () => {
   const { accessToken } = useContext(AuthContext)
-  const [isLogged, setIsLogged] = useState(false)
+  const [userIsLogged, setUserIsLogged] = useState<"false" | "true">("false")
   const [userInfos, setUserInfos] = useState<IResponse>()
 
   useEffect(() => {
     if (accessToken !== null) {
-      setIsLogged(true)
+      setUserIsLogged("true")
     }
 
     const result = useGetUserInfos()
@@ -25,13 +25,13 @@ export const SideBar: React.FC = () => {
     }
 
     setUserInfos(result.data)
-  }, [accessToken, isLogged])
+  }, [accessToken, userIsLogged])
 
   return (
     <S.ContainerSideBar>
-      <UserMenu isLogged={isLogged} userInfos={userInfos} />
+      <UserMenu islogged={userIsLogged} userInfos={userInfos} />
       <Filter />
-      {isLogged && <Logout />}
+      {userIsLogged === "true" && <Logout />}
     </S.ContainerSideBar>
   )
 }

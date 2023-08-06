@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom"
 import type { IResponse } from "../../../../../../shared/types"
 
 interface IProps {
-  isLogged: boolean
+  islogged: "false" | "true"
   userInfos: IResponse | undefined
 }
 
-export const UserMenu: React.FC<IProps> = ({ isLogged, userInfos }) => {
+export const UserMenu: React.FC<IProps> = ({ islogged, userInfos }) => {
   const navigate = useNavigate()
 
   const handleSingUp = (): void => {
@@ -20,21 +20,25 @@ export const UserMenu: React.FC<IProps> = ({ isLogged, userInfos }) => {
     navigate("/login")
   }
   return (
-    <S.ContainerUser islogged={isLogged}>
-      {isLogged ? (
+    <S.ContainerUser islogged={islogged}>
+      {islogged === "true" ? (
         <>
           <S.ContainerUserImg>
             <img src={userPhoto} alt="User Photo" />
           </S.ContainerUserImg>
           <p>{userInfos?.data.data.name}</p>
           <S.ContainerMyProfileButton>
-            <Button isbig={false} text="My Profile" />
+            <Button isbig={undefined} text="My Profile" />
           </S.ContainerMyProfileButton>
         </>
       ) : (
-        <S.ContainerUser islogged={isLogged}>
-          <Button text="Sing up" isbig={false} onClick={handleSingUp} />
-          <SecondaryButton text="Log in" isbig={false} onClick={handleLogin} />
+        <S.ContainerUser islogged={islogged}>
+          <Button text="Sing up" isbig={undefined} onClick={handleSingUp} />
+          <SecondaryButton
+            text="Log in"
+            isbig={undefined}
+            onClick={handleLogin}
+          />
         </S.ContainerUser>
       )}
     </S.ContainerUser>

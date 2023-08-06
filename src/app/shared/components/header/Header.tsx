@@ -8,7 +8,9 @@ import { Logout } from ".."
 import { UserMenu } from "../../../pages/home/components/sideBar/components"
 
 export const Header: React.FC = () => {
-  const [menuIsVisible, setMenuIsVisible] = useState<boolean>(false)
+  const [menuIsVisible, setMenuIsVisible] = useState<
+    "true" | "false" | "closed"
+  >("closed")
 
   return (
     <S.Header>
@@ -25,23 +27,25 @@ export const Header: React.FC = () => {
           size={40}
           color="#f2f2f2"
           onClick={() => {
-            setMenuIsVisible(true)
+            setMenuIsVisible("true")
           }}
         />
       )}
 
-      <S.containerMenuMobile isvisible={menuIsVisible}>
-        <IoMdClose
-          role="button"
-          color="#f2f2f2"
-          size={40}
-          onClick={() => {
-            setMenuIsVisible(false)
-          }}
-        />
-        <UserMenu isLogged={false} userInfos={undefined} />
-        <Logout />
-      </S.containerMenuMobile>
+      {menuIsVisible !== "closed" && (
+        <S.containerMenuMobile isvisible={menuIsVisible}>
+          <IoMdClose
+            role="button"
+            color="#f2f2f2"
+            size={40}
+            onClick={() => {
+              setMenuIsVisible("false")
+            }}
+          />
+          <UserMenu islogged="false" userInfos={undefined} />
+          <Logout />
+        </S.containerMenuMobile>
+      )}
     </S.Header>
   )
 }

@@ -7,10 +7,11 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 120px;
-  width: 100%;
+  width: 100vw;
   padding: 0 100px;
   border-bottom: 1px solid ${Theme.colors.others.lineTwo};
   box-shadow: inset 0 -1px 0 0 ${Theme.colors.others.lineOne};
+  overflow-x: hidden;
 
   div {
     display: flex;
@@ -45,9 +46,11 @@ export const HeaderImg = styled.img`
     width: 33px;
   }
 `
-export const containerMenuMobile = styled.div<{ isvisible: boolean }>`
+export const containerMenuMobile = styled.div<{
+  isvisible: "true" | "false" | "closed"
+}>`
   display: flex;
-  position: ${({ isvisible }) => (isvisible ? "absolute" : "fixed")};
+  position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
@@ -74,10 +77,9 @@ export const containerMenuMobile = styled.div<{ isvisible: boolean }>`
   }
 
   ${({ isvisible }) =>
-    !isvisible &&
+    isvisible === "false" &&
     css`
-      display: none;
-      opacity: 1;
+      position: fixed;
       animation: menuMobileOut 1s forwards;
       @keyframes menuMobileOut {
         from {
@@ -85,6 +87,7 @@ export const containerMenuMobile = styled.div<{ isvisible: boolean }>`
         }
         to {
           left: 100%;
+          display: none;
         }
       }
     `}
