@@ -6,9 +6,3 @@ export interface IResponse {
     data?: any
   }
 }
-
-export interface IResponseValidationError {
-  response: {
-    data: any
-  }
-}

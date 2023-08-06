@@ -3,7 +3,7 @@ import { Theme } from "../../../../../../shared/theme"
 
 export const ContainerUser = styled.div<{ islogged: "false" | "true" }>`
   width: 100%;
-  height: 121px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +31,7 @@ export const ContainerUser = styled.div<{ islogged: "false" | "true" }>`
   ${({ islogged }) =>
     islogged === "false" &&
     css`
-      height: auto;
+      height: 121px;
     `}
 `
 export const ContainerMyProfileButton = styled.div`

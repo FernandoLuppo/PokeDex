@@ -12,21 +12,24 @@ export const AuthProvider = ({
   const [refreshToken, setRefreshToken] = useState<string | null>(null)
 
   useEffect(() => {
-    const validateCookie = (): void => {
-      const { access, refresh } = useCookies()
+    const { access, refresh } = useCookies()
 
-      if (access === undefined || refresh === undefined) {
-        return
-      }
-
-      setAccessToken(access)
-      setRefreshToken(refresh)
+    if (access === undefined || refresh === undefined) {
+      return
     }
-    validateCookie()
+
+    setAccessToken(access)
+    setRefreshToken(refresh)
   }, [accessToken, refreshToken])
 
   const newCookies = async (): Promise<void> => {
     await get("/token/new-token")
+      .then(() => {
+        console.log("ola alguem ai?")
+      })
+      .catch(error => {
+        console.log("eui sou um erro", error)
+      })
   }
 
   return (
