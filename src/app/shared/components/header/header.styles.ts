@@ -50,9 +50,9 @@ export const containerMenuMobile = styled.div<{
   isvisible: "true" | "false" | "closed"
 }>`
   display: flex;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 0;
   z-index: 5;
   flex-direction: column;

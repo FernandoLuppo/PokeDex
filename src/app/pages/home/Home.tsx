@@ -1,5 +1,5 @@
 import * as S from "./home.styles"
-import { Header } from "../../shared/components"
+import { Header, PokeCard } from "../../shared/components"
 import { SideBar } from "./components/sideBar/SideBar"
 
 export const Home: React.FC = () => {
@@ -9,7 +9,12 @@ export const Home: React.FC = () => {
 
       <S.HomeColumn>
         <Header />
-        <main></main>
+        <S.ContainerPokemon>
+          <PokeCard />
+          <PokeCard />
+          <PokeCard />
+          <PokeCard />
+        </S.ContainerPokemon>
       </S.HomeColumn>
     </S.HomeContainer>
   )

@@ -1,18 +1,21 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { Home, Login, Register } from "../pages"
-import { AuthProvider } from "../shared/context"
+import { AuthProvider, UserGetInfosProvider } from "../shared/context"
 
 export const AppRoutes: React.FC = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+        <UserGetInfosProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-          <Route path="/*" element={<Navigate to="/" />} />
-        </Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+
+            <Route path="/*" element={<Navigate to="/" />} />
+          </Routes>
+        </UserGetInfosProvider>
       </AuthProvider>
     </BrowserRouter>
   )
