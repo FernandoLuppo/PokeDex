@@ -1,0 +1,1 @@
+export * from "./loadingPokemonHome/LoadingPokemonHome"

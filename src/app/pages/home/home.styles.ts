@@ -10,7 +10,7 @@ export const HomeColumn = styled.div`
 `
 
 export const ContainerPokemon = styled.main`
-  width: 100%;
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
