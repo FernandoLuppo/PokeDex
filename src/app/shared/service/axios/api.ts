@@ -12,8 +12,8 @@ export const get = async (url: string): Promise<IResponse | any> => {
 }
 
 export const post = async (
-  info: any,
-  url: string
+  url: string,
+  info: any
 ): Promise<IResponse | any> => {
   try {
     const data: IResponse = await Api().post(`${url}`, info)

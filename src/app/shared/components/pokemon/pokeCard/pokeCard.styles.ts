@@ -1,5 +1,6 @@
-import { styled } from "styled-components"
+import { css, styled } from "styled-components"
 import { Theme } from "../../../theme"
+import { pokemonColor } from "../../../utils"
 
 export const ContainerPokeCard = styled.div`
   width: 100%;
@@ -23,11 +24,22 @@ export const PokeId = styled.div`
   color: ${Theme.colors.card};
   background: ${Theme.colors.primary};
 `
+export const PokemonSprit = styled.img`
+  height: 80px;
+`
+
 export const PokeInfos = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 35px;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
 
   p {
     text-align: center;
@@ -35,17 +47,16 @@ export const PokeInfos = styled.div`
     color: ${Theme.font.colors.text2};
   }
 
-  div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
   div > p {
     border-radius: 5px;
     padding: 5px 15px;
     font-size: ${Theme.font.size.main.xs};
-    color: ${Theme.font.colors.text2};
-    background-color: green;
+    color: ${Theme.font.colors.text1};
   }
+`
+
+export const PokeType = styled.p<{ type: string }>`
+  ${({ type }) => css`
+    background: ${pokemonColor(type)};
+  `}
 `
