@@ -25,7 +25,7 @@ export const PokeId = styled.div`
   background: ${Theme.colors.primary};
 `
 export const PokemonSprit = styled.img`
-  height: 80px;
+  height: 100px;
 `
 
 export const PokeInfos = styled.div`

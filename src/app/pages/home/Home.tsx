@@ -4,70 +4,51 @@ import { SideBar } from "./components/sideBar/SideBar"
 import { useEffect, useState } from "react"
 import { post } from "../../shared/service"
 
-interface IProps {
-  data: [
-    {
-      type: [
-        {
-          type: string
-        }
-      ]
-      name: string
-      id: number
-      sprit: string
-    }
-  ]
+interface IPokemon {
+  type: [{ type: string }]
+  name: string
+  id: number
+  sprit: string
 }
 
 export const Home: React.FC = () => {
-  const [pokemon, setPokemon] = useState<IProps | any>()
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [pokemon, setPokemon] = useState<IPokemon[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [pokemonList, setPokemonList] = useState<{
+    start: number
+    end: number
+  }>({ start: 0, end: 20 })
 
   useEffect(() => {
     setIsLoading(true)
-    const pokemonList = {
-      start: 0,
-      end: 20
-    }
     post("/pokemon/get-all", pokemonList)
-      .then(pokemon => {
-        setPokemon(pokemon.data)
+      .then(res => {
+        setPokemon([...pokemon, ...res.data.data])
         setIsLoading(false)
       })
       .catch(error => {
         console.log(error)
       })
+  }, [pokemonList])
 
-    const handleScroll = (): void => {
-      const windowHeight = window.innerHeight
-      const scrollY = window.scrollY
-      const bodyHeight = document.body.scrollHeight
-
-      if (scrollY + windowHeight >= bodyHeight) {
-        setIsLoading(true)
-
-        pokemonList.start = pokemonList.end
-        pokemonList.end = pokemonList.end + 20
-
-        post("/pokemon/get-all", pokemonList)
-          .then(pokemon => {
-            const newPokemonData = pokemon.data
-
-            setPokemon([...pokemon, newPokemonData])
-            setIsLoading(false)
-          })
-          .catch(error => {
-            console.log(error)
-          })
-      }
-    }
-
+  useEffect(() => {
+    handleScroll()
     window.addEventListener("scroll", handleScroll)
-
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [pokemon])
+  }, [isLoading])
+
+  const handleScroll = (): void => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop <
+        document.documentElement.offsetHeight ||
+      isLoading
+    ) {
+      return
+    }
+    setPokemonList({ start: pokemonList.start + 20, end: pokemonList.end })
+  }
 
   return (
     <S.HomeContainer>
@@ -76,7 +57,11 @@ export const Home: React.FC = () => {
       <S.HomeColumn>
         <Header />
         <S.ContainerPokemon>
-          {pokemon?.data === undefined ? "" : <PokeCard data={pokemon?.data} />}
+          {pokemon !== undefined
+            ? pokemon.map(data => {
+                return <PokeCard key={data.id} data={data} />
+              })
+            : ""}
         </S.ContainerPokemon>
       </S.HomeColumn>
     </S.HomeContainer>
