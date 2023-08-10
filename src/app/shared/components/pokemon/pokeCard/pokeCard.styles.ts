@@ -14,6 +14,7 @@ export const ContainerPokeCard = styled.div`
   border-top: 1px solid ${Theme.colors.primary};
   border-bottom: 1px solid ${Theme.colors.primary};
   background: ${Theme.colors.card};
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
 `
 export const PokeId = styled.div`
   width: 86px;

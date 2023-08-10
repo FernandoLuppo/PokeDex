@@ -56,6 +56,8 @@ export const ContainerMyProfileButton = styled.div`
 export const ContainerUserImg = styled.div`
   width: 150px;
   height: 150px;
+  border: 2px solid ${Theme.colors.card};
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
 
   img {
     border-radius: 10px;

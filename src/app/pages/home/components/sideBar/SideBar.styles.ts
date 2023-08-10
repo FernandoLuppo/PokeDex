@@ -4,9 +4,12 @@ import { Theme } from "../../../../shared/theme"
 export const ContainerSideBar = styled.div`
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: fixed;
+  left: 0;
   width: 370px;
   height: 100vh;
   border-right: 1px solid ${Theme.colors.others.lineTwo};
-  box-shadow: 1px 0 1px -1px ${Theme.colors.others.lineOne};
+  box-shadow:
+    1px 0 1px -1px ${Theme.colors.others.lineOne},
+    0 1px 10px 4px rgba(0, 0, 0, 0.4);
 `

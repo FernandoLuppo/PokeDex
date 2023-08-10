@@ -1,5 +1,10 @@
 import * as S from "./home.styles"
-import { Header, LoadingPokemonHome, PokeCard } from "../../shared/components"
+import {
+  Header,
+  LoadingPokemonHome,
+  LoadingPokemonList,
+  PokeCard
+} from "../../shared/components"
 import { SideBar } from "./components/sideBar/SideBar"
 import { useEffect, useState } from "react"
 import { post } from "../../shared/service"
@@ -57,12 +62,20 @@ export const Home: React.FC = () => {
       <S.HomeColumn>
         <Header />
         <S.ContainerPokemon>
-          {pokemon.length === 0 ? (
-            <LoadingPokemonHome />
-          ) : (
-            pokemon.map(data => {
-              return <PokeCard key={data.id} data={data} />
-            })
+          <S.List>
+            {pokemon.length === 0 ? (
+              <LoadingPokemonHome />
+            ) : (
+              pokemon.map(data => {
+                return <PokeCard key={data.id} data={data} />
+              })
+            )}
+          </S.List>
+
+          {isLoading && pokemon.length > 0 && (
+            <S.Loading>
+              <LoadingPokemonList />
+            </S.Loading>
           )}
         </S.ContainerPokemon>
       </S.HomeColumn>
