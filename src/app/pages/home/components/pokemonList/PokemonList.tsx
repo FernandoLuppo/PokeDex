@@ -9,27 +9,12 @@ import { useContext, useEffect, useState } from "react"
 import { post } from "../../../../shared/service"
 import { PokemonFilterContext } from "../../../../shared/context"
 import { ErrorMessage } from "./components/ErrorMessage"
-
-interface IPokemon {
-  type: [{ type: string }]
-  name: string
-  id: number
-  sprit: string
-}
-
-interface IPokeList {
-  start: number
-  end: number
-}
-
-interface IPokemonSearch {
-  genericInfos: {
-    name: string
-    id: number
-    sprit: string
-  }
-  types: [{ type: string }]
-}
+import type {
+  IPokeList,
+  IPokemon,
+  IPokemonSearch
+} from "../../../../shared/types"
+import { calcWindowHeight } from "../../../../shared/utils"
 
 export const PokemonList: React.FC = () => {
   const [pokemon, setPokemon] = useState<IPokemon[]>([])
@@ -69,16 +54,7 @@ export const PokemonList: React.FC = () => {
       return
     }
 
-    const scrollY = window.scrollY
-    const windowHeight = window.innerHeight
-    const documentHeight = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight,
-      document.body.clientHeight,
-      document.documentElement.clientHeight
-    )
+    const { scrollY, documentHeight, windowHeight } = calcWindowHeight()
 
     if (scrollY + windowHeight >= documentHeight) {
       setPokemonList({ start: pokemonList.start + 20, end: pokemonList.end })
@@ -89,11 +65,7 @@ export const PokemonList: React.FC = () => {
     useContext(PokemonFilterContext)
 
   useEffect(() => {
-    if (
-      findPokemon === undefined ||
-      findPokemon === "" ||
-      findPokemon === false
-    ) {
+    if (findPokemon === undefined || findPokemon === false) {
       setSearchPokemon(false)
       return
     }
@@ -103,7 +75,7 @@ export const PokemonList: React.FC = () => {
       return
     }
 
-    setSearchPokemon(findPokemon.data.data)
+    setSearchPokemon(findPokemon)
   }, [findPokemon])
 
   return (
