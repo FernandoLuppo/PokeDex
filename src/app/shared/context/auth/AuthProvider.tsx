@@ -23,13 +23,9 @@ export const AuthProvider = ({
   }, [accessToken, refreshToken])
 
   const newCookies = async (): Promise<void> => {
-    await get("/token/new-token")
-      .then(() => {
-        console.log("ola alguem ai?")
-      })
-      .catch(error => {
-        console.log("eui sou um erro", error)
-      })
+    await get("/token/new-token").catch(error => {
+      console.log(error)
+    })
   }
 
   return (

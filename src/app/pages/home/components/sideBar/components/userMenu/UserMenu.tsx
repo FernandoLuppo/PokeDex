@@ -2,6 +2,7 @@ import userPhoto from "../../../../../../shared/image/user-photo.jpg"
 import * as S from "./userMenu.styles"
 import { Button, SecondaryButton } from "../../../../../../shared/components"
 import { useNavigate } from "react-router-dom"
+import { useCallback } from "react"
 
 interface IProps {
   islogged: "false" | "true"
@@ -11,13 +12,17 @@ interface IProps {
 export const UserMenu: React.FC<IProps> = ({ islogged, userInfos }) => {
   const navigate = useNavigate()
 
-  const handleSingUp = (): void => {
+  const handleSingUp = useCallback(() => {
     navigate("/register")
-  }
+  }, [])
 
-  const handleLogin = (): void => {
+  const handleLogin = useCallback(() => {
     navigate("/login")
-  }
+  }, [])
+
+  const handleClick = useCallback(() => {
+    navigate(`/user/${userInfos}`)
+  }, [])
 
   return (
     <S.ContainerUser islogged={islogged}>
@@ -28,7 +33,7 @@ export const UserMenu: React.FC<IProps> = ({ islogged, userInfos }) => {
           </S.ContainerUserImg>
           <p>{userInfos}</p>
           <S.ContainerMyProfileButton>
-            <Button isbig={undefined} text="My Profile" />
+            <Button isbig={undefined} text="My Profile" onClick={handleClick} />
           </S.ContainerMyProfileButton>
         </>
       ) : (

@@ -46,7 +46,7 @@ export const Header: React.FC = () => {
             }}
           />
           <UserMenu islogged={userIsLogged} userInfos={userInfos as string} />
-          <Logout />
+          {userIsLogged === "true" && <Logout />}
         </S.containerMenuMobile>
       )}
     </S.Header>

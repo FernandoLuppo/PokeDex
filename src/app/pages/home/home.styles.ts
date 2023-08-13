@@ -13,27 +13,15 @@ export const HomeContainer = styled.div`
 `
 export const HomeColumn = styled.div`
   width: calc(100% - 370px);
+
   @media (max-width: 900px) {
     width: 100%;
   }
 `
 
-export const ContainerPokemon = styled.main`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+export const ContainerHomeSearchBar = styled.div`
   position: relative;
-  padding: 30px 60px;
-`
-export const List = styled.section`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px 30px;
-`
-
-export const Loading = styled.section`
-  display: flex;
-  width: 100%;
+  width: 220px;
+  margin: auto;
+  margin-top: 30px;
 `

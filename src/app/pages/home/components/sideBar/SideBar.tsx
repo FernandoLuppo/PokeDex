@@ -1,5 +1,5 @@
 import * as S from "./SideBar.styles"
-import { Filter, UserMenu } from "./components"
+import { UserMenu } from "./components"
 import { Logout } from "../../../../shared/components"
 import { useContext } from "react"
 import { UserGetInfosContext } from "../../../../shared/context"
@@ -10,7 +10,6 @@ export const SideBar: React.FC = () => {
   return (
     <S.ContainerSideBar>
       <UserMenu islogged={userIsLogged} userInfos={userInfos as string} />
-      <Filter />
       {userIsLogged === "true" && <Logout />}
     </S.ContainerSideBar>
   )

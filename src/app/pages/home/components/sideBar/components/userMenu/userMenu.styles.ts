@@ -31,7 +31,11 @@ export const ContainerUser = styled.div<{ islogged: "false" | "true" }>`
   ${({ islogged }) =>
     islogged === "false" &&
     css`
-      height: 121px;
+      @media (max-width: 900px) {
+        height: auto;
+        justify-content: center;
+        margin-top: 20px;
+      }
     `}
 `
 export const ContainerMyProfileButton = styled.div`

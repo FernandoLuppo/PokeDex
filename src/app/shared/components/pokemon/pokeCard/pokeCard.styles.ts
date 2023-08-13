@@ -3,6 +3,7 @@ import { Theme } from "../../../theme"
 import { pokemonColor } from "../../../utils"
 
 export const ContainerPokeCard = styled.div`
+  cursor: pointer;
   width: 100%;
   height: 350px;
   max-width: 300px;

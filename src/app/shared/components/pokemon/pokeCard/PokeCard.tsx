@@ -1,4 +1,6 @@
+import { useCallback } from "react"
 import * as S from "./pokeCard.styles"
+import { useNavigate } from "react-router-dom"
 
 interface IPokemon {
   type: [{ type: string }]
@@ -8,30 +10,45 @@ interface IPokemon {
 }
 
 interface IProps {
-  data: IPokemon
+  data: IPokemon | IPokemonSearch
+}
+
+interface IPokemonSearch {
+  genericInfos: {
+    name: string
+    id: number
+    sprit: string
+  }
+  types: [{ type: string }]
 }
 
 export const PokeCard: React.FC<IProps> = ({ data }) => {
+  const id = "genericInfos" in data ? data.genericInfos.id : data.id
+  const name = "genericInfos" in data ? data.genericInfos.name : data.name
+  const sprite = "genericInfos" in data ? data.genericInfos.sprit : data.sprit
+  const types = "types" in data ? data.types : data.type
+
+  const navigate = useNavigate()
+  const handleClick = useCallback(() => {
+    navigate(`/pokemon/${id}`)
+  }, [])
+
   return (
-    <>
-      <S.ContainerPokeCard key={data.id}>
-        <S.PokeId>#{data.id}</S.PokeId>
+    <S.ContainerPokeCard key={id} onClick={handleClick}>
+      <S.PokeId>#{id}</S.PokeId>
+      <div>
+        <S.PokemonSprit src={sprite} alt="" />
+      </div>
+      <S.PokeInfos>
+        <p>{name}</p>
         <div>
-          <S.PokemonSprit src={data.sprit} alt="" />
+          {types.map(pokemon => (
+            <S.PokeType key={pokemon.type} type={pokemon.type}>
+              {pokemon.type}
+            </S.PokeType>
+          ))}
         </div>
-        <S.PokeInfos>
-          <p>{data.name}</p>
-          <div>
-            {data.type.map(pokemon => {
-              return (
-                <S.PokeType key={pokemon.type} type={pokemon.type}>
-                  {pokemon.type}
-                </S.PokeType>
-              )
-            })}
-          </div>
-        </S.PokeInfos>
-      </S.ContainerPokeCard>
-    </>
+      </S.PokeInfos>
+    </S.ContainerPokeCard>
   )
 }

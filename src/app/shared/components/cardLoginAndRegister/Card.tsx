@@ -38,7 +38,7 @@ export const Card: React.FC<IProps> = ({
 
   const handleClick = useCallback(async () => {
     setIsLoading(true)
-    const res = await post({ name, email, password }, url)
+    const res = await post(url, { name, email, password })
 
     const result = usePost(res)
 
@@ -52,7 +52,7 @@ export const Card: React.FC<IProps> = ({
     }
 
     setIsLoading(false)
-    navigate(buttonLink)
+    window.location.href = buttonLink
   }, [name, email, password, isLoading])
 
   const handleNavigate = useCallback(() => {
