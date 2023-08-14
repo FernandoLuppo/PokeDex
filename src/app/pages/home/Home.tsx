@@ -1,9 +1,9 @@
 import * as S from "./home.styles"
-import { Header } from "../../shared/components"
+import { HeaderHome } from "../../shared/components"
 import { SideBar } from "./components/sideBar/SideBar"
 
 import { PokemonList } from "./components"
-import { SearchBar } from "../../shared/components/header/components"
+import { SearchBar } from "../../shared/components/header/headerHome/components"
 
 export const Home: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ export const Home: React.FC = () => {
       {window.innerWidth > 900 && <SideBar />}
 
       <S.HomeColumn>
-        <Header />
+        <HeaderHome />
         {window.innerWidth < 900 && (
           <S.ContainerHomeSearchBar>
             <SearchBar />

@@ -10,6 +10,8 @@ interface IProps {
 }
 
 export const UserMenu: React.FC<IProps> = ({ islogged, userInfos }) => {
+  console.log(userInfos)
+
   const navigate = useNavigate()
 
   const handleSingUp = useCallback(() => {
@@ -21,8 +23,8 @@ export const UserMenu: React.FC<IProps> = ({ islogged, userInfos }) => {
   }, [])
 
   const handleClick = useCallback(() => {
-    navigate(`/user/${userInfos}`)
-  }, [])
+    navigate(`/user/${userInfos.toLowerCase()}`)
+  }, [userInfos])
 
   return (
     <S.ContainerUser islogged={islogged}>

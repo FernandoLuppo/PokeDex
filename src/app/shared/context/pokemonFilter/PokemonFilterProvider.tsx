@@ -32,7 +32,7 @@ export const PokemonFilterProvider = ({
       return
     }
 
-    post("/pokemon/get-one", { id: searchFilter })
+    post("/pokemon/get-one", { id: searchFilter.toString().toLowerCase() })
       .then(pokemon => {
         if (pokemon.response !== undefined) {
           setFindPokemon(true)

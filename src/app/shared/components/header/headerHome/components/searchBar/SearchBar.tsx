@@ -1,8 +1,8 @@
 import { useCallback, useContext, useState } from "react"
-import searchIcon from "../../../../image/search.png"
-import { wordsAndNumbers } from "../../../../service"
+import searchIcon from "../../../../../image/search.png"
+import { wordsAndNumbers } from "../../../../../service"
 import * as S from "./searchBar.styles"
-import { PokemonFilterContext } from "../../../../context"
+import { PokemonFilterContext } from "../../../../../context"
 
 export const SearchBar: React.FC = ({ ...props }) => {
   const mask = (e: React.FormEvent<HTMLInputElement>): void => {

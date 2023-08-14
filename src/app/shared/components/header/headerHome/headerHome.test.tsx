@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from "@testing-library/react"
-import { Header } from "./Header"
+import { HeaderHome } from "./HeaderHome"
 
 describe("<Header />", () => {
   it("Should be in the document the Logo and the Title", () => {
-    render(<Header />)
+    render(<HeaderHome />)
     const logo = screen.getByAltText("Logo")
     const title = screen.getByText("LuppoTW Pokedex")
 
@@ -14,7 +14,7 @@ describe("<Header />", () => {
   it("Should render the SearchBar when screen width is greater than 900px", () => {
     Object.defineProperty(window, "innerWidth", { value: 910 })
 
-    const { queryByTestId } = render(<Header />)
+    const { queryByTestId } = render(<HeaderHome />)
 
     const searchBar = queryByTestId("search-bar")
     expect(searchBar).toBeInTheDocument()
@@ -23,14 +23,14 @@ describe("<Header />", () => {
   it("Should not render the SearchBar when screen width is lower than 900px", () => {
     Object.defineProperty(window, "innerWidth", { value: 900 })
 
-    const { queryByTestId } = render(<Header />)
+    const { queryByTestId } = render(<HeaderHome />)
 
     const searchBar = queryByTestId("search-bar")
     expect(searchBar).not.toBeInTheDocument()
   })
 
   it("Should open the mobile menu when menu icon is clicked", () => {
-    render(<Header />)
+    render(<HeaderHome />)
     Object.defineProperty(window, "innerWidth", { value: 890 })
 
     const hamburgerButton = screen.getByRole("menu")
@@ -42,7 +42,7 @@ describe("<Header />", () => {
   })
 
   it("Should close the mobile menu when the close icon is clicked", () => {
-    render(<Header />)
+    render(<HeaderHome />)
     Object.defineProperty(window, "innerWidth", { value: 890 })
 
     const hamburgerButton = screen.getByRole("menu")
