@@ -6,12 +6,10 @@ import { useCallback } from "react"
 
 interface IProps {
   islogged: "false" | "true"
-  userInfos: string
+  userName: string
 }
 
-export const UserMenu: React.FC<IProps> = ({ islogged, userInfos }) => {
-  console.log(userInfos)
-
+export const UserMenu: React.FC<IProps> = ({ islogged, userName }) => {
   const navigate = useNavigate()
 
   const handleSingUp = useCallback(() => {
@@ -23,8 +21,8 @@ export const UserMenu: React.FC<IProps> = ({ islogged, userInfos }) => {
   }, [])
 
   const handleClick = useCallback(() => {
-    navigate(`/user/${userInfos.toLowerCase()}`)
-  }, [userInfos])
+    navigate(`/user/${userName.toLowerCase()}`)
+  }, [userName])
 
   return (
     <S.ContainerUser islogged={islogged}>
@@ -33,7 +31,7 @@ export const UserMenu: React.FC<IProps> = ({ islogged, userInfos }) => {
           <S.ContainerUserImg>
             <img src={userPhoto} alt="User Photo" />
           </S.ContainerUserImg>
-          <p>{userInfos}</p>
+          <p>{userName}</p>
           <S.ContainerMyProfileButton>
             <Button isbig={undefined} text="My Profile" onClick={handleClick} />
           </S.ContainerMyProfileButton>

@@ -5,6 +5,7 @@ export const Login: React.FC = () => {
   return (
     <S.ContainerLogin>
       <Card
+        isPassword={true}
         isName={false}
         title="Login"
         url="user/login"

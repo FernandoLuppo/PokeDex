@@ -5,6 +5,7 @@ export const Register: React.FC = () => {
   return (
     <S.ContainerRegister>
       <Card
+        isPassword={true}
         isName={true}
         title="Register"
         url="/user/register"

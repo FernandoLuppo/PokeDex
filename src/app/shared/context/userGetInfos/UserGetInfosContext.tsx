@@ -2,10 +2,15 @@ import { createContext } from "react"
 
 interface IProps {
   userIsLogged: "false" | "true"
-  userInfos: string | undefined
+  userInfos: IUserInfos
+}
+
+interface IUserInfos {
+  name: string
+  email: string
 }
 
 export const UserGetInfosContext = createContext<IProps>({
   userIsLogged: "false",
-  userInfos: undefined
+  userInfos: { name: "", email: "" }
 })

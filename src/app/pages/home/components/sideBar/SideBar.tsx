@@ -9,7 +9,7 @@ export const SideBar: React.FC = () => {
 
   return (
     <S.ContainerSideBar>
-      <UserMenu islogged={userIsLogged} userInfos={userInfos as string} />
+      <UserMenu islogged={userIsLogged} userName={userInfos.name} />
       {userIsLogged === "true" && <Logout />}
     </S.ContainerSideBar>
   )

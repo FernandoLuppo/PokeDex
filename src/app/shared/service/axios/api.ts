@@ -24,7 +24,7 @@ export const post = async (
   }
 }
 
-export const put = async (info: any, url: string): Promise<IResponse | any> => {
+export const put = async (url: string, info: any): Promise<IResponse | any> => {
   try {
     const data: IResponse = await Api().put(`${url}`, info)
     return data
@@ -34,12 +34,9 @@ export const put = async (info: any, url: string): Promise<IResponse | any> => {
   }
 }
 
-export const exclude = async (
-  info: any,
-  url: string
-): Promise<IResponse | any> => {
+export const exclude = async (url: string): Promise<IResponse | any> => {
   try {
-    const data: IResponse = await Api().delete(`${url}`, info)
+    const data: IResponse = await Api().delete(`${url}`)
     return data
   } catch (err) {
     const error = err as any

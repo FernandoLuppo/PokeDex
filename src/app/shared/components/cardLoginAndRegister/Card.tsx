@@ -9,6 +9,7 @@ import { Buttons, Exit, Form } from "./components"
 
 interface IProps {
   isName: boolean
+  isPassword: boolean
   title: string
   url: string
   isRecoverPasswordLink: boolean
@@ -20,6 +21,7 @@ interface IProps {
 
 export const Card: React.FC<IProps> = ({
   isName,
+  isPassword,
   title,
   url,
   isRecoverPasswordLink,
@@ -68,6 +70,7 @@ export const Card: React.FC<IProps> = ({
       <Form
         error={error}
         isName={isName}
+        isPassword={isPassword}
         setName={setName}
         setEmail={setEmail}
         setPassword={setPassword}
