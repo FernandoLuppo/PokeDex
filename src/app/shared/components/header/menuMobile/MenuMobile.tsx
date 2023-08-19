@@ -8,7 +8,7 @@ interface IProps {
   setMenuIsVisible: React.Dispatch<
     React.SetStateAction<"true" | "false" | "closed">
   >
-  userInfos: string | undefined
+  userInfos: { name: string; email: string }
   userIsLogged: "true" | "false"
 }
 
@@ -28,7 +28,7 @@ export const MenuMobile: React.FC<IProps> = ({
           setMenuIsVisible("false")
         }}
       />
-      <UserMenu islogged={userIsLogged} userInfos={userInfos as string} />
+      <UserMenu islogged={userIsLogged} userName={userInfos.name} />
       {userIsLogged === "true" && <Logout />}
     </S.containerMenuMobile>
   )

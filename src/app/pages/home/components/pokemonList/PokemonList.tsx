@@ -11,13 +11,13 @@ import { PokemonFilterContext } from "../../../../shared/context"
 import { ErrorMessage } from "./components/ErrorMessage"
 import type {
   IPokeList,
-  IPokemon,
+  IPokemonCard,
   IPokemonSearch
 } from "../../../../shared/types"
 import { calcWindowHeight } from "../../../../shared/utils"
 
 export const PokemonList: React.FC = () => {
-  const [pokemon, setPokemon] = useState<IPokemon[]>([])
+  const [pokemon, setPokemon] = useState<IPokemonCard[]>([])
   const [isLoadingList, setIsLoadingList] = useState<boolean>(true)
   const [pokemonList, setPokemonList] = useState<IPokeList>({
     start: 0,

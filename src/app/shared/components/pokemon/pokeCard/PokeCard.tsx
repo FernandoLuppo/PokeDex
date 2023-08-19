@@ -1,12 +1,12 @@
 import { useCallback } from "react"
 import * as S from "./pokeCard.styles"
 import { useNavigate } from "react-router-dom"
-import type { IPokemon, IPokemonSearch } from "../../../types"
+import type { IPokemonCard, IPokemonSearch } from "../../../types"
 import { AiOutlinePlus } from "react-icons/ai"
 import { exclude } from "../../../service"
 
 interface IProps {
-  data: IPokemon | IPokemonSearch
+  data: IPokemonCard | IPokemonSearch
 }
 
 export const PokeCard: React.FC<IProps> = ({ data }) => {

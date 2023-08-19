@@ -40,3 +40,41 @@ export const pokemonColor = (color: string): string => {
       return ""
   }
 }
+
+export const pokemonStatsColor = (color: string): string => {
+  switch (color) {
+    case "hp":
+      return "#D96C6C"
+    case "attack":
+      return "#D99A6C"
+    case "defense":
+      return "#D9C76C"
+    case "special-attack":
+      return "#6C98D9"
+    case "special-defense":
+      return "#6FD96C"
+    case "speed":
+      return "#8F6CD9"
+    default:
+      return ""
+  }
+}
+
+export const pokemonBaseStatsColor = (color: string): string => {
+  switch (color) {
+    case "hp":
+      return "#CC1F1F"
+    case "attack":
+      return "#CC671F"
+    case "defense":
+      return "#B29812"
+    case "special-attack":
+      return "#1F64CC"
+    case "special-defense":
+      return "#1A9917"
+    case "speed":
+      return "#4B2C8D"
+    default:
+      return ""
+  }
+}

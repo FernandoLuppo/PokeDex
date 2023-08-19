@@ -2,8 +2,9 @@ import { styled } from "styled-components"
 import { Theme } from "../../../../shared/theme"
 
 export const ContainerUserMenu = styled.section`
+  min-width: 350px;
   position: relative;
-  width: 450px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +12,14 @@ export const ContainerUserMenu = styled.section`
   border-radius: 25px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
   background-color: ${Theme.colors.card};
+
+  @media (max-width: 1250px) {
+    width: 100%;
+  }
+
+  @media (max-width: 850px) {
+    min-width: 100%;
+  }
 `
 export const ContainerUserImg = styled.div`
   margin-top: 40px;
@@ -38,8 +47,8 @@ export const ContainerUserImg = styled.div`
     color: ${Theme.font.colors.title};
   }
 
-  @media (max-width: 900px) {
-    width: 125px;
+  @media (max-width: 1250px) {
+    width: 100%;
     min-height: 125px;
   }
 `
@@ -47,6 +56,16 @@ export const ContainerUserImg = styled.div`
 export const ContainerForm = styled.div`
   width: 100%;
   padding: 0 50px;
+
+  @media (max-width: 1600px) {
+    padding: 0 20px;
+  }
+
+  @media (max-width: 1250px) {
+    @media (max-width: 1250px) {
+      margin-top: 30px;
+    }
+  }
 `
 
 export const ContainerButton = styled.div`
@@ -54,4 +73,8 @@ export const ContainerButton = styled.div`
   margin: 40px 0;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 1250px) {
+    margin: 30px 0;
+  }
 `

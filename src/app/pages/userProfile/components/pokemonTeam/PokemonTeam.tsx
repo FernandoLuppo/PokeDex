@@ -1,58 +1,14 @@
-import { useEffect, useState } from "react"
-import { get } from "../../../../shared/service"
 import { PokeCard } from "../../../../shared/components"
 import * as S from "./pokemonTeam.styles"
+import type { IPokemon } from "../../../../shared/types"
 
-interface ITeamPokemon {
-  pokemon: {
-    genericInfos: {
-      name: string
-      id: number
-      sprit: string
-    }
-    types: [{ type: string }]
-  }
+interface IProps {
+  team: IPokemon[]
+  teamIsLoaded: boolean
 }
 
-export const PokemonTeam: React.FC = () => {
-  const [team, setTeam] = useState<ITeamPokemon[]>()
-  const [teamIsLoaded, setTeamIsLoaded] = useState<boolean>(false)
-
-  useEffect(() => {
-    get("/pokemon/team")
-      .then(userTeam => {
-        const { data } = userTeam.data
-        //  Fazer uma função aparte nessa parte do código
-        if (data !== undefined) {
-          const teamMembers = data.length
-          if (teamMembers < 6) {
-            const emptyPokemon: ITeamPokemon = {
-              pokemon: {
-                genericInfos: {
-                  name: "",
-                  id: 0,
-                  sprit: ""
-                },
-                types: [{ type: "" }]
-              }
-            }
-
-            const newTeam = [...data]
-            for (let i = teamMembers; i < 6; i++) {
-              newTeam.push(emptyPokemon)
-            }
-
-            // Retornar o newTeam
-
-            setTeam(newTeam)
-            setTeamIsLoaded(true)
-          }
-        }
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }, [])
+export const PokemonTeam: React.FC<IProps> = ({ team, teamIsLoaded }) => {
+  console.log("oi", teamIsLoaded)
 
   return (
     <S.ContainerPokemonTeam>

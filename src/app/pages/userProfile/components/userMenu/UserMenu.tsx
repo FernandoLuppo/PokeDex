@@ -57,7 +57,11 @@ export const UserMenu: React.FC = () => {
         />
       </S.ContainerForm>
       <S.ContainerButton>
-        <Button isbig={"yes"} text="Save" onClick={handleClick} />
+        {window.innerWidth > 1600 ? (
+          <Button isbig={"yes"} text="Save" onClick={handleClick} />
+        ) : (
+          <Button isbig={undefined} text="Save" onClick={handleClick} />
+        )}
       </S.ContainerButton>
     </S.ContainerUserMenu>
   )

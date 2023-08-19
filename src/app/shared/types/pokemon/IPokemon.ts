@@ -1,4 +1,4 @@
-export interface IPokemon {
+export interface IPokemonCard {
   type: [{ type: string }]
   name: string
   id: number
@@ -17,4 +17,50 @@ export interface IPokemonSearch {
     sprit: string
   }
   types: [{ type: string }]
+}
+
+export interface IPokemon {
+  pokemon: {
+    description?: string
+    isUserTeam?: boolean
+    genericInfos: {
+      id: number
+      name: string
+      height?: number
+      weight?: number
+      sprit: string
+    }
+    levels?: {
+      firstForm: {
+        name: string
+      }
+      secondForm: {
+        evolveBy: string
+        level: number
+        name: string
+      }
+      thirdForm: {
+        evolveBy: string
+        level: number
+        name: string
+      }
+    }
+    pokemonMovie?: [
+      {
+        movie: string
+        level: number
+      }
+    ]
+    pokemonStats?: [
+      {
+        base_stat: number
+        name: string
+      }
+    ]
+    types: [
+      {
+        type: string
+      }
+    ]
+  }
 }

@@ -28,7 +28,7 @@ export const Header = styled.header`
   }
 
   @media (max-width: 1350px) {
-    padding: 0 50px;
+    padding: 0 20px;
 
     div > h1 {
       font-size: ${Theme.font.size.main.m};
