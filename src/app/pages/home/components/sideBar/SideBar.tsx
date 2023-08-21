@@ -1,6 +1,6 @@
 import * as S from "./SideBar.styles"
 import { UserMenu } from "./components"
-import { Logout } from "../../../../shared/components"
+import { LoadingPage, Logout } from "../../../../shared/components"
 import { useContext } from "react"
 import { UserGetInfosContext } from "../../../../shared/context"
 
@@ -9,8 +9,16 @@ export const SideBar: React.FC = () => {
 
   return (
     <S.ContainerSideBar>
-      <UserMenu islogged={userIsLogged} userName={userInfos.name} />
-      {userIsLogged === "true" && <Logout />}
+      {userIsLogged === "true" &&
+      userInfos.name !== undefined &&
+      userInfos.email !== undefined ? (
+        <>
+          <UserMenu islogged={userIsLogged} userName={userInfos.name} />
+          {userIsLogged === "true" && <Logout />}
+        </>
+      ) : (
+        <LoadingPage />
+      )}
     </S.ContainerSideBar>
   )
 }

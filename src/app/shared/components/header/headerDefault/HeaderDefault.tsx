@@ -1,21 +1,27 @@
 import * as S from "./headerDefault.styles"
-import { useContext, useState } from "react"
+import { useCallback, useContext, useState } from "react"
 import { AiOutlineMenu } from "react-icons/ai"
 import { Nav } from "./components"
 import { MenuMobile } from "../menuMobile/MenuMobile"
 import { UserGetInfosContext } from "../../../context"
 import ultraBall from "../../../image/ultra-ball.png"
+import { useNavigate } from "react-router-dom"
 
 export const HeaderDefault: React.FC = () => {
   const [menuIsVisible, setMenuIsVisible] = useState<
     "true" | "false" | "closed"
   >("closed")
 
+  const navigate = useNavigate()
+  const handleClick = useCallback(() => {
+    navigate("/")
+  }, [])
+
   const { userInfos, userIsLogged } = useContext(UserGetInfosContext)
 
   return (
     <S.Header>
-      <div>
+      <div onClick={handleClick}>
         <S.HeaderImg src={ultraBall} alt="Logo" />
         <h1>LuppoTW PokeDex</h1>
       </div>

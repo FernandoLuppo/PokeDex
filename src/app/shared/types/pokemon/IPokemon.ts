@@ -64,3 +64,21 @@ export interface IPokemon {
     ]
   }
 }
+
+export interface IPokemonEvolutions {
+  levels: {
+    firstForm: {
+      name: string
+    }
+    secondForm?: {
+      name: string
+      level: number
+      evolveBy: string
+    }
+    thirdForm?: {
+      name: string
+      level: number
+      evolveBy: string
+    }
+  }
+}
