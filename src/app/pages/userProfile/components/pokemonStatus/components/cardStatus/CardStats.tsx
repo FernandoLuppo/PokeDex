@@ -10,7 +10,7 @@ interface IProps {
 export const CardStats: React.FC<IProps> = ({ pokemonStats }) => {
   return (
     <>
-      {pokemonStats.map(({ pokemon }) => {
+      {pokemonStats.map(pokemon => {
         return (
           <>
             {pokemon.isUserTeam === true ? (

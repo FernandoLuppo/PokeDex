@@ -1,2 +1,2 @@
 export * from "./pokeInfos/PokeInfos"
-export * from "./pokeEvolutions/PokeEvolutions"
+export * from "./pokeAttacks/PokeAttacks"

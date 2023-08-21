@@ -1,9 +1,9 @@
 import { createContext } from "react"
-import type { IPokemonSearch } from "../../types"
+import type { IPokemon } from "../../types"
 
 interface IProp {
   searchFilterFunction: (data: string) => void
-  findPokemon: IPokemonSearch | boolean
+  findPokemon: IPokemon | boolean
   isLoadingSearchPokemon: boolean
 }
 

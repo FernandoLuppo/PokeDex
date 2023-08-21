@@ -7,14 +7,12 @@ export const buildingUserTeam = (data: any): any[] | undefined => {
 
     if (teamMembers < 6) {
       const emptyPokemon: IPokemon = {
-        pokemon: {
-          genericInfos: {
-            name: "",
-            id: 0,
-            sprit: ""
-          },
-          types: [{ type: "" }]
-        }
+        genericInfos: {
+          name: "",
+          id: 0,
+          sprit: ""
+        },
+        types: [{ type: "" }]
       }
 
       newTeam = [...data]

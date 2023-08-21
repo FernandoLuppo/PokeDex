@@ -2,10 +2,7 @@ import * as S from "./pokeStats.styles"
 import type { IPokemon } from "../../../../../../shared/types"
 import { pokemonStatsAverage } from "../../../../../../shared/utils"
 
-export const PokeStats: React.FC<IPokemon> = props => {
-  const types = props.pokemon.types
-  const stats = props.pokemon.pokemonStats
-
+export const PokeStats: React.FC<IPokemon> = ({ types, pokemonStats }) => {
   return (
     <S.ContainerPokeStats>
       <h1>Base Stats</h1>
@@ -23,7 +20,7 @@ export const PokeStats: React.FC<IPokemon> = props => {
         <S.Line></S.Line>
 
         <div>
-          {stats?.map(item => {
+          {pokemonStats?.map(item => {
             return (
               <S.ContainerStats key={item.name}>
                 <p>
@@ -44,9 +41,7 @@ export const PokeStats: React.FC<IPokemon> = props => {
               </S.ContainerStats>
             )
           })}
-          <h2>
-            Total: {Math.round(pokemonStatsAverage({ pokemonStats: stats }))}
-          </h2>
+          <h2>Total: {Math.round(pokemonStatsAverage({ pokemonStats }))}</h2>
         </div>
       </S.ContainerPokeStatsContent>
     </S.ContainerPokeStats>

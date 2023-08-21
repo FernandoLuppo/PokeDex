@@ -25,6 +25,26 @@ export const ContainerPokeStats = styled.div`
     font-size: ${Theme.font.size.main.m};
     color: ${Theme.font.colors.text1};
   }
+
+  @media (max-width: 1250px) {
+    h1 {
+      font-size: ${Theme.font.size.main.m};
+    }
+
+    h2 {
+      font-size: ${Theme.font.size.main.s};
+    }
+  }
+
+  @media (max-width: 1000px) {
+    h1 {
+      font-size: ${Theme.font.size.main.s};
+    }
+
+    h2 {
+      font-size: ${Theme.font.size.main.xs};
+    }
+  }
 `
 
 export const ContainerPokeStatsContent = styled.div`
@@ -53,6 +73,16 @@ export const PokeType = styled.p<{ type: string }>`
   ${({ type }) => css`
     background: ${pokemonColor(type)};
   `}
+
+  @media (max-width: 1250px) {
+    padding: 15px 5px;
+    font-size: ${Theme.font.size.main.xs};
+  }
+
+  @media (max-width: 500px) {
+    padding: 10px;
+    font-size: ${Theme.font.size.main.xxs};
+  }
 `
 
 export const Line = styled.div`
@@ -72,6 +102,12 @@ export const ContainerStats = styled.div`
     font-size: ${Theme.font.size.main.xs};
     color: ${Theme.font.colors.text2};
   }
+
+  @media (max-width: 1000px) {
+    p {
+      font-size: ${Theme.font.size.main.xxs};
+    }
+  }
 `
 
 export const PokeStatsBar = styled.div<{ stats: string }>`
@@ -84,6 +120,10 @@ export const PokeStatsBar = styled.div<{ stats: string }>`
   ${({ stats }) => css`
     background: ${pokemonStatsColor(stats)};
   `}
+
+  @media (max-width: 500px) {
+    width: 70px;
+  }
 `
 export const PokeBaseStats = styled.div<{ basestatus: number; stats: string }>`
   height: 5px;
@@ -92,5 +132,10 @@ export const PokeBaseStats = styled.div<{ basestatus: number; stats: string }>`
     width: calc(${basestatus}px / 2.5);
     max-width: 100px;
     background: ${pokemonBaseStatsColor(stats)};
+
+    @media (max-width: 500px) {
+      width: calc(${basestatus}px / 3);
+      max-width: 70px;
+    }
   `}
 `

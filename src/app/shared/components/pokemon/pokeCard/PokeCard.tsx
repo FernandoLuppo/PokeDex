@@ -1,20 +1,20 @@
 import { useCallback } from "react"
 import * as S from "./pokeCard.styles"
 import { useNavigate } from "react-router-dom"
-import type { IPokemonCard, IPokemonSearch } from "../../../types"
+import type { IPokemon } from "../../../types"
 import { AiOutlinePlus } from "react-icons/ai"
 import { exclude } from "../../../service"
 
 interface IProps {
-  data: IPokemonCard | IPokemonSearch
+  data: IPokemon
 }
 
 export const PokeCard: React.FC<IProps> = ({ data }) => {
   const isUserTeam = "isUserTeam" in data && true
-  const id = "genericInfos" in data ? data.genericInfos.id : data.id
-  const name = "genericInfos" in data ? data.genericInfos.name : data.name
-  const sprite = "genericInfos" in data ? data.genericInfos.sprit : data.sprit
-  const types = "types" in data ? data.types : data.type
+  const id = data.genericInfos.id
+  const name = data.genericInfos.name
+  const sprite = data.genericInfos.sprit
+  const types = data.types
 
   const navigate = useNavigate()
 
@@ -33,7 +33,7 @@ export const PokeCard: React.FC<IProps> = ({ data }) => {
       console.log(id)
 
       exclude(`/pokemon/remove/${id}`)
-        .then(item => {
+        .then(() => {
           window.location.assign(window.location.href)
         })
         .catch(error => {

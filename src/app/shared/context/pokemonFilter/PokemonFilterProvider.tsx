@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { PokemonFilterContext } from "./PokemonFilterContext"
 import { post } from "../../service"
-import type { IPokemonSearch } from "../../types"
+import type { IPokemon } from "../../types"
 
 export const PokemonFilterProvider = ({
   children
@@ -9,9 +9,7 @@ export const PokemonFilterProvider = ({
   children: JSX.Element
 }): JSX.Element => {
   const [searchFilter, setSearchFilter] = useState<string>("")
-  const [findPokemon, setFindPokemon] = useState<IPokemonSearch | boolean>(
-    false
-  )
+  const [findPokemon, setFindPokemon] = useState<IPokemon | boolean>(false)
   const [isLoadingSearchPokemon, setIsLoadingSearchPokemon] =
     useState<boolean>(true)
 

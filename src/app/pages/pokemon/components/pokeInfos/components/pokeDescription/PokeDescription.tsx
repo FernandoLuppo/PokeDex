@@ -1,28 +1,25 @@
 import * as S from "./pokeDescription.styles"
 import type { IPokemon } from "../../../../../../shared/types"
 
-export const PokeDescription: React.FC<IPokemon> = props => {
-  const name = props.pokemon.genericInfos.name
-  const id = props.pokemon.genericInfos.id
-  const height = props.pokemon.genericInfos.height
-  const weight = props.pokemon.genericInfos.weight
-  const description = props.pokemon.description
-
+export const PokeDescription: React.FC<IPokemon> = ({
+  description,
+  genericInfos
+}) => {
   return (
     <S.ContainerPokeDescription>
       <h1>
-        #{id} {name}
+        #{genericInfos?.id} {genericInfos?.name}
       </h1>
 
       <S.ContainerInfos>
         <ul>
           <li>
             <h3>Height: </h3>
-            {height}
+            {genericInfos?.height}
           </li>
           <li>
             <h3>Weight: </h3>
-            {weight}
+            {genericInfos?.weight}
           </li>
           <li>
             <h3>About: </h3>

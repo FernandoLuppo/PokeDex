@@ -10,4 +10,10 @@ export const ContainerPokeSprit = styled.div`
   img {
     height: 150px;
   }
+
+  @media (max-width: 500px) {
+    img {
+      height: 120px;
+    }
+  }
 `

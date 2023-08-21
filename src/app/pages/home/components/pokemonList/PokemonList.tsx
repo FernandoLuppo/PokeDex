@@ -9,24 +9,18 @@ import { useContext, useEffect, useState } from "react"
 import { post } from "../../../../shared/service"
 import { PokemonFilterContext } from "../../../../shared/context"
 import { ErrorMessage } from "./components/ErrorMessage"
-import type {
-  IPokeList,
-  IPokemonCard,
-  IPokemonSearch
-} from "../../../../shared/types"
+import type { IPokeList, IPokemon } from "../../../../shared/types"
 import { calcWindowHeight } from "../../../../shared/utils"
 
 export const PokemonList: React.FC = () => {
-  const [pokemon, setPokemon] = useState<IPokemonCard[]>([])
+  const [pokemon, setPokemon] = useState<IPokemon[]>([])
   const [isLoadingList, setIsLoadingList] = useState<boolean>(true)
   const [pokemonList, setPokemonList] = useState<IPokeList>({
     start: 0,
     end: 20
   })
   const [firstLoad, setFirstLoad] = useState<boolean>(true)
-  const [searchPokemon, setSearchPokemon] = useState<IPokemonSearch | boolean>(
-    false
-  )
+  const [searchPokemon, setSearchPokemon] = useState<IPokemon | boolean>(false)
 
   useEffect(() => {
     setIsLoadingList(true)
@@ -87,7 +81,7 @@ export const PokemonList: React.FC = () => {
           <LoadingPokemonHome />
         ) : searchPokemon === false ? (
           pokemon.map(data => {
-            return <PokeCard key={data.id} data={data} />
+            return <PokeCard key={data.genericInfos.id} data={data} />
           })
         ) : searchPokemon === true ? (
           <ErrorMessage />

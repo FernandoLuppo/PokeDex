@@ -8,6 +8,10 @@ export const ContainerPokeDescription = styled.div`
     font-size: ${Theme.font.size.main.l};
     color: ${Theme.font.colors.text1};
   }
+
+  @media (max-width: 1250px) {
+    font-size: ${Theme.font.size.main.m};
+  }
 `
 
 export const ContainerInfos = styled.div`
@@ -30,5 +34,17 @@ export const ContainerInfos = styled.div`
   ul > li > h3 {
     font-size: ${Theme.font.size.main.s};
     color: ${Theme.colors.primary};
+  }
+
+  @media (max-width: 1250px) {
+    padding: 10px 15px;
+
+    ul > li {
+      font-size: ${Theme.font.size.main.xxs};
+    }
+
+    ul > li > h3 {
+      font-size: ${Theme.font.size.main.xs};
+    }
   }
 `
