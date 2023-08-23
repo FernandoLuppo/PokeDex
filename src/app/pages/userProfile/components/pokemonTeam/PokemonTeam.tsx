@@ -8,8 +8,6 @@ interface IProps {
 }
 
 export const PokemonTeam: React.FC<IProps> = ({ team, teamIsLoaded }) => {
-  console.log("oi", teamIsLoaded)
-
   return (
     <S.ContainerPokemonTeam>
       {teamIsLoaded && team !== undefined && (

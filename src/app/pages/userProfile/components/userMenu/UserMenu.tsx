@@ -35,9 +35,13 @@ export const UserMenu: React.FC = () => {
       setError(authenticateErrors)
     }
 
-    setName(resp.data.data.name)
-    setEmail(resp.data.data.email)
-  }, [name, email])
+    console.log(resp)
+
+    setName("")
+    setEmail("")
+    setNamePlaceholder(resp.data.data.name)
+    setEmailPlaceholder(resp.data.data.email)
+  }, [name, email, namePlaceholder, emailPlaceholder])
 
   return (
     <S.ContainerUserMenu>
@@ -47,6 +51,8 @@ export const UserMenu: React.FC = () => {
       </S.ContainerUserImg>
       <S.ContainerForm>
         <Form
+          name={name}
+          email={email}
           error={error}
           isName={true}
           isPassword={false}

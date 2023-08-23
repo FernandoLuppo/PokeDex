@@ -4,6 +4,8 @@ import { InputForm } from "../../.."
 
 interface IProps {
   setName?: React.Dispatch<React.SetStateAction<string | undefined>>
+  name?: string
+  email?: string
   setEmail: React.Dispatch<React.SetStateAction<string | undefined>>
   setPassword?: React.Dispatch<React.SetStateAction<string | undefined>>
   isName: boolean
@@ -21,6 +23,7 @@ export const Form: React.FC<IProps> = props => {
           text="Name:"
           type="text"
           label="name"
+          value={props.name}
           placeholder={
             props.namePlaceholder !== undefined
               ? props.namePlaceholder
@@ -39,6 +42,7 @@ export const Form: React.FC<IProps> = props => {
         text="Email:"
         type="email"
         label="email"
+        value={props.email}
         placeholder={
           props.emailPlaceholder !== undefined
             ? props.emailPlaceholder

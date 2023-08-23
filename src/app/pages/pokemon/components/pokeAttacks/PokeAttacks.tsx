@@ -10,7 +10,9 @@ export const PokeAttacks: React.FC<IPokemon> = ({ pokemonMovie }) => {
     <S.ContainerPokeAttacks>
       <table>
         <thead>
-          <th colSpan={3}>Attack by Level</th>
+          <tr>
+            <th colSpan={3}>Attack by Level</th>
+          </tr>
         </thead>
         <tbody>
           <tr>

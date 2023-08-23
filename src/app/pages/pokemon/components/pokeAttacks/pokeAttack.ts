@@ -16,13 +16,13 @@ export const ContainerPokeAttacks = styled.section`
     background: ${Theme.colors.card};
   }
 
-  table > thead > th,
+  table > thead > tr > th,
   table > tbody > tr > td {
     text-align: center;
     color: ${Theme.font.colors.text2};
   }
 
-  table > thead > th {
+  table > thead > tr > th {
     text-align: center;
     font-size: ${Theme.font.size.main.l};
   }
@@ -41,7 +41,7 @@ export const ContainerPokeAttacks = styled.section`
 
   @media (max-width: 1000px) {
     padding: 30px;
-    table > thead > th {
+    table > thead > tr > th {
       font-size: ${Theme.font.size.main.m};
     }
 

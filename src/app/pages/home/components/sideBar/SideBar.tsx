@@ -9,9 +9,8 @@ export const SideBar: React.FC = () => {
 
   return (
     <S.ContainerSideBar>
-      {userIsLogged === "true" &&
-      userInfos.name !== undefined &&
-      userInfos.email !== undefined ? (
+      {(userIsLogged === "true" && userInfos !== undefined) ||
+      userIsLogged === "false" ? (
         <>
           <UserMenu islogged={userIsLogged} userName={userInfos.name} />
           {userIsLogged === "true" && <Logout />}

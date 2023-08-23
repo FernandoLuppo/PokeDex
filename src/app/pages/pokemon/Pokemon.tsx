@@ -13,8 +13,10 @@ export const Pokemon: React.FC = () => {
 
   useEffect(() => {
     post("/pokemon/get-one", { id })
-      .then(({ data }) => {
-        setPokemon(data.data)
+      .then(res => {
+        if (res.data !== undefined) {
+          setPokemon(res.data.data)
+        }
       })
       .catch(error => {
         console.log(error)

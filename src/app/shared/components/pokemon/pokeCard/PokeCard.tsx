@@ -11,15 +11,17 @@ interface IProps {
 
 export const PokeCard: React.FC<IProps> = ({ data }) => {
   const isUserTeam = "isUserTeam" in data && true
-  const id = data.genericInfos.id
-  const name = data.genericInfos.name
-  const sprite = data.genericInfos.sprit
+  const id = data.genericInfos?.id
+  const name = data.genericInfos?.name
+  const sprite = data.genericInfos?.sprit
   const types = data.types
 
   const navigate = useNavigate()
 
   const handleClick = useCallback(() => {
-    navigate(`/pokemon/${id}`)
+    if (id !== undefined) {
+      navigate(`/pokemon/${id}`)
+    }
   }, [])
 
   const handleAddPokemon = useCallback(() => {
@@ -30,15 +32,16 @@ export const PokeCard: React.FC<IProps> = ({ data }) => {
     async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       e.preventDefault()
       e.stopPropagation()
-      console.log(id)
 
-      exclude(`/pokemon/remove/${id}`)
-        .then(() => {
-          window.location.assign(window.location.href)
-        })
-        .catch(error => {
-          console.log(error)
-        })
+      if (id !== undefined) {
+        exclude(`/pokemon/remove/${id}`)
+          .then(() => {
+            window.location.assign(window.location.href)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+      }
     },
     [id]
   )
@@ -65,7 +68,7 @@ export const PokeCard: React.FC<IProps> = ({ data }) => {
           <S.PokeInfos>
             <p>{name}</p>
             <div>
-              {types.map(pokemon => (
+              {types?.map(pokemon => (
                 <S.PokeType key={pokemon.type} type={pokemon.type}>
                   {pokemon.type}
                 </S.PokeType>
