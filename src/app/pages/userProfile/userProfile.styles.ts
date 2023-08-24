@@ -12,7 +12,7 @@ export const ContainerUserProfile = styled.main`
   }
 
   @media (max-width: 850px) {
-    padding: 30px 50px;
+    padding: 30px;
   }
 `
 export const FirstSection = styled.section`

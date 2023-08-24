@@ -14,22 +14,22 @@ export const ContainerNav = styled.nav`
     background: none;
   }
 
-  button:first-child {
-    color: ${Theme.font.colors.text1};
-  }
-
-  button:first-child:hover {
-    color: ${Theme.font.colors.inputField};
-  }
-
   button:last-child {
     text-decoration: underline;
     color: ${Theme.colors.others.exit};
   }
 
   button:last-child:hover {
-    text-decoration: underline;
     color: ${Theme.colors.others.exitHover};
+  }
+
+  button:first-child {
+    text-decoration: none;
+    color: ${Theme.font.colors.text1};
+  }
+
+  button:first-child:hover {
+    color: ${Theme.font.colors.inputField};
   }
 
   @media (max-width: 1350px) {
