@@ -1,12 +1,5 @@
-interface IProps {
-  pokemonStats:
-    | [
-        {
-          base_stat: number
-          name: string
-        }
-      ]
-    | undefined
+export interface IProps {
+  pokemonStats: Array<{ base_stat: number; name: string }> | undefined
 }
 
 export const pokemonStatsAverage = ({ pokemonStats }: IProps): number => {
