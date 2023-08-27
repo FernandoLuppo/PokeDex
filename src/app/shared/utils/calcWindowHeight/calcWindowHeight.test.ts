@@ -1,6 +1,6 @@
 import { calcWindowHeight } from "./calcWindowHeight"
 
-describe("calcWindowHeight", () => {
+describe("calcWindowHeight.ts", () => {
   it("Should return a object with correctly properties", () => {
     const result = calcWindowHeight()
 

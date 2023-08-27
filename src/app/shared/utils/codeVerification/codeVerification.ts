@@ -3,9 +3,10 @@ export const codeVerification = (
   emailCode: string
 ): { isError: boolean; fullCode: string } => {
   let data = { isError: true, fullCode: "" }
+
   const fullCode = userCode?.join("")
 
-  if (fullCode !== undefined && fullCode === emailCode) {
+  if (fullCode !== undefined && fullCode !== emailCode) {
     data = { fullCode, isError: false }
     return data
   }
