@@ -10,7 +10,7 @@ describe("codeVerification.ts", () => {
     expect(result.isError).toBeFalsy()
   })
 
-  it("Should return a valid code", () => {
+  it("Should return a isError as true", () => {
     const initialCode = null
     const email = ""
     const result = codeVerification(initialCode, email)
