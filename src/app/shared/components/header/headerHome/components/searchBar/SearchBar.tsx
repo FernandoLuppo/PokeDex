@@ -32,7 +32,7 @@ export const SearchBar: React.FC = ({ ...props }) => {
           }
         }}
       />
-      <S.SearchButton onClick={handleSearch}>
+      <S.SearchButton onClick={handleSearch} data-testid="search-button">
         <img src={searchIcon} alt="Search Icon" />
       </S.SearchButton>
     </S.SearchBar>

@@ -26,9 +26,11 @@ export const PokemonList: React.FC = () => {
     setIsLoadingList(true)
     post("/pokemon/get-all", pokemonList)
       .then(res => {
-        setPokemon([...pokemon, ...res.data.data])
-        setIsLoadingList(false)
-        setFirstLoad(false)
+        if (res.data !== undefined) {
+          setPokemon([...pokemon, ...res.data.data])
+          setIsLoadingList(false)
+          setFirstLoad(false)
+        }
       })
       .catch(error => {
         console.log(error)
@@ -81,7 +83,7 @@ export const PokemonList: React.FC = () => {
           <LoadingPokemonHome />
         ) : searchPokemon === false ? (
           pokemon.map(data => {
-            return <PokeCard key={data.genericInfos.id} data={data} />
+            return <PokeCard key={data.genericInfos?.id} data={data} />
           })
         ) : searchPokemon === true ? (
           <ErrorMessage />

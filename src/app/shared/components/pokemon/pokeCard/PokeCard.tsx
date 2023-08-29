@@ -49,13 +49,20 @@ export const PokeCard: React.FC<IProps> = ({ data }) => {
   return (
     <>
       {id === 0 ? (
-        <S.ContainerPokeCard onClick={handleAddPokemon}>
+        <S.ContainerPokeCard
+          onClick={handleAddPokemon}
+          data-testid="pokemon-empty-card"
+        >
           <S.AddPokemon>
             <AiOutlinePlus size={120} />
           </S.AddPokemon>
         </S.ContainerPokeCard>
       ) : (
-        <S.ContainerPokeCard key={id} onClick={handleClick}>
+        <S.ContainerPokeCard
+          key={id}
+          onClick={handleClick}
+          data-testid="pokemon-card"
+        >
           <S.ContainerCardSuperiorInfos>
             <S.PokeId>#{id}</S.PokeId>
             {isUserTeam && (
@@ -63,7 +70,7 @@ export const PokeCard: React.FC<IProps> = ({ data }) => {
             )}
           </S.ContainerCardSuperiorInfos>
           <div>
-            <S.PokemonSprit src={sprite} alt="" />
+            <S.PokemonSprit src={sprite} alt={name} />
           </div>
           <S.PokeInfos>
             <p>{name}</p>
