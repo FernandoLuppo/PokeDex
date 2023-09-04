@@ -4,7 +4,7 @@ import { Button } from "./Button"
 describe("<Button />", () => {
   it("Should be in the document with the right text", () => {
     const buttonText = "Click Me!"
-    render(<Button text={buttonText} />)
+    render(<Button text={buttonText} isbig={undefined} />)
 
     const buttonElement = screen.getByRole("button", { name: buttonText })
 
@@ -15,7 +15,7 @@ describe("<Button />", () => {
   it("Should call the onClick function correctly", () => {
     const buttonText = "Click Me!"
     const mockClick = jest.fn()
-    render(<Button text={buttonText} onClick={mockClick} />)
+    render(<Button text={buttonText} onClick={mockClick} isbig={undefined} />)
 
     const buttonElement = screen.getByRole("button", { name: buttonText })
     fireEvent.click(buttonElement)

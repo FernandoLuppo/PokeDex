@@ -34,13 +34,14 @@ describe("<Card />", () => {
     it("Components should be in the document", () => {
       render(
         <Card
+          isPassword={true}
           isName={false}
           title="Register"
           url="/user/register"
           buttonLink="/login"
           navigateLink="/login"
           buttonOneTxt="Log in"
-          buttonTwoTxt="Sing up"
+          buttonTwoTxt="Sign up"
           isRecoverPasswordLink={false}
         />
       )
@@ -50,7 +51,7 @@ describe("<Card />", () => {
       const formNameElement = screen.queryByPlaceholderText(
         "Example: Ash Ketchum"
       )
-      const buttonsElement = screen.getByRole("button", { name: "Sing up" })
+      const buttonsElement = screen.getByRole("button", { name: "Sign up" })
 
       expect(exitElement).toBeInTheDocument()
       expect(formElement).toBeInTheDocument()
@@ -61,13 +62,14 @@ describe("<Card />", () => {
     it("Components should be in the document with name field in the form", () => {
       render(
         <Card
+          isPassword={true}
           isName={true}
           title="Register"
           url="/user/register"
           buttonLink="/login"
           navigateLink="/login"
           buttonOneTxt="Log in"
-          buttonTwoTxt="Sing up"
+          buttonTwoTxt="Sign up"
           isRecoverPasswordLink={false}
         />
       )
@@ -77,7 +79,7 @@ describe("<Card />", () => {
       const formNameElement = screen.getByPlaceholderText(
         "Example: Ash Ketchum"
       )
-      const buttonsElement = screen.getByRole("button", { name: "Sing up" })
+      const buttonsElement = screen.getByRole("button", { name: "Sign up" })
 
       expect(exitElement).toBeInTheDocument()
       expect(formElement).toBeInTheDocument()
@@ -93,13 +95,14 @@ describe("<Card />", () => {
       })
       render(
         <Card
+          isPassword={true}
           isName={true}
           title="Register"
           url="/user/register"
           buttonLink="/login"
           navigateLink="/login"
           buttonOneTxt="Log in"
-          buttonTwoTxt="Sing up"
+          buttonTwoTxt="Sign up"
           isRecoverPasswordLink={false}
         />
       )
@@ -120,18 +123,19 @@ describe("<Card />", () => {
 
       render(
         <Card
+          isPassword={true}
           isName={true}
           title="Register"
           url="/user/register"
           buttonLink="/login"
           navigateLink="/login"
-          buttonOneTxt="Sing up"
+          buttonOneTxt="Sign up"
           buttonTwoTxt="Log in"
           isRecoverPasswordLink={false}
         />
       )
 
-      const singUpButton = screen.getByText("Sing up")
+      const singUpButton = screen.getByText("Sign up")
       await act(async () => {
         fireEvent.click(singUpButton)
       })
@@ -160,13 +164,14 @@ describe("<Card />", () => {
 
       render(
         <Card
+          isPassword={true}
           isName={true}
           title="Register"
           url="/user/register"
           buttonLink="/login"
           navigateLink="/login"
           buttonOneTxt="Log in"
-          buttonTwoTxt="Sing up"
+          buttonTwoTxt="Sign up"
           isRecoverPasswordLink={false}
         />
       )

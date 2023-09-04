@@ -53,7 +53,7 @@ export const UserMenu: React.FC<IProps> = ({ islogged, userName }) => {
         </>
       ) : (
         <>
-          <Button text="Sing up" isbig={undefined} onClick={handleSingUp} />
+          <Button text="Sign up" isbig={undefined} onClick={handleSingUp} />
           <SecondaryButton
             text="Log in"
             isbig={undefined}

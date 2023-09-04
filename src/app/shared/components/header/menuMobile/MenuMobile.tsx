@@ -27,6 +27,7 @@ export const MenuMobile: React.FC<IProps> = ({
         onClick={() => {
           setMenuIsVisible("false")
         }}
+        data-testid="close-menu-mobile"
       />
       <UserMenu islogged={userIsLogged} userName={userInfos.name} />
       {userIsLogged === "true" && <Logout />}

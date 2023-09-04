@@ -11,7 +11,7 @@ export const Register: React.FC = () => {
         url="/user/register"
         buttonLink="/login"
         navigateLink="/login"
-        buttonOneTxt="Sing up"
+        buttonOneTxt="Sign up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={false}
       />

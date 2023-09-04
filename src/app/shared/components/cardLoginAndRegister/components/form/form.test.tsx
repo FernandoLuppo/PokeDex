@@ -7,6 +7,7 @@ describe("<Form />", () => {
       render(
         <Form
           isName={false}
+          isPassword={true}
           setName={() => {}}
           setEmail={() => {}}
           setPassword={() => {}}
@@ -23,10 +24,32 @@ describe("<Form />", () => {
       expect(inputName).toBeNull()
     })
 
+    it("Should be in the document the input email only", () => {
+      render(
+        <Form
+          isName={false}
+          isPassword={false}
+          setName={() => {}}
+          setEmail={() => {}}
+          setPassword={() => {}}
+          error={undefined}
+        />
+      )
+
+      const inputName = screen.queryByPlaceholderText("Example: Ash Ketchum")
+      const inputEmail = screen.getByPlaceholderText("Example: red@gmail.com")
+      const inputPassword = screen.queryByPlaceholderText("******")
+
+      expect(inputEmail).toBeInTheDocument()
+      expect(inputPassword).toBeNull()
+      expect(inputName).toBeNull()
+    })
+
     it("Should be in the document the input name, email and password", () => {
       render(
         <Form
           isName={true}
+          isPassword={true}
           setName={() => {}}
           setEmail={() => {}}
           setPassword={() => {}}
@@ -48,6 +71,7 @@ describe("<Form />", () => {
       render(
         <Form
           isName={true}
+          isPassword={true}
           setName={() => {}}
           setEmail={() => {}}
           setPassword={() => {}}
@@ -83,6 +107,7 @@ describe("<Form />", () => {
       render(
         <Form
           isName={true}
+          isPassword={true}
           setName={mockSetName}
           setEmail={mockSetEmail}
           setPassword={mockSetPassword}
@@ -117,6 +142,7 @@ describe("<Form />", () => {
       render(
         <Form
           isName={true}
+          isPassword={true}
           setName={() => {}}
           setEmail={() => {}}
           setPassword={() => {}}

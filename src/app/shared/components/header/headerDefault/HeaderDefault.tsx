@@ -36,6 +36,7 @@ export const HeaderDefault: React.FC = () => {
           onClick={() => {
             setMenuIsVisible("true")
           }}
+          data-testid="menu"
         />
       )}
 

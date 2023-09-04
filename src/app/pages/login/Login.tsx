@@ -12,7 +12,7 @@ export const Login: React.FC = () => {
         buttonLink="/"
         navigateLink="/register"
         buttonOneTxt="Log in"
-        buttonTwoTxt="Sing up"
+        buttonTwoTxt="Sign up"
         isRecoverPasswordLink={true}
       />
 

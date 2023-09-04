@@ -14,17 +14,17 @@ describe("<Buttons />", () => {
       <Buttons
         handleClick={() => {}}
         handleNavigate={() => {}}
-        buttonOneTxt="Sing up"
+        buttonOneTxt="Sign up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={false}
       />
     )
 
-    const singUp = screen.getByRole("button", { name: "Sing up" })
+    const singUp = screen.getByRole("button", { name: "Sign up" })
     const login = screen.getByRole("button", { name: "Log in" })
 
     expect(singUp).toBeInTheDocument()
-    expect(singUp).toHaveTextContent("Sing up")
+    expect(singUp).toHaveTextContent("Sign up")
     expect(login).toBeInTheDocument()
     expect(login).toHaveTextContent("Log in")
   })
@@ -37,13 +37,13 @@ describe("<Buttons />", () => {
       <Buttons
         handleClick={mockHandleClick}
         handleNavigate={mockHandleNavigate}
-        buttonOneTxt="Sing up"
+        buttonOneTxt="Sign up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={false}
       />
     )
 
-    const singUp = screen.getByRole("button", { name: "Sing up" })
+    const singUp = screen.getByRole("button", { name: "Sign up" })
     const login = screen.getByRole("button", { name: "Log in" })
 
     fireEvent.click(singUp)
@@ -59,17 +59,17 @@ describe("<Buttons />", () => {
       <Buttons
         handleClick={() => {}}
         handleNavigate={() => {}}
-        buttonOneTxt="Sing up"
+        buttonOneTxt="Sign up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={false}
       />
     )
 
-    const singUp = screen.getByRole("button", { name: "Sing up" })
+    const singUp = screen.getByRole("button", { name: "Sign up" })
     const login = screen.getByRole("button", { name: "Log in" })
 
     expect(singUp).toBeInTheDocument()
-    expect(singUp).toHaveTextContent("Sing up")
+    expect(singUp).toHaveTextContent("Sign up")
     expect(login).toBeInTheDocument()
     expect(login).toHaveTextContent("Log in")
   })
@@ -79,7 +79,7 @@ describe("<Buttons />", () => {
       <Buttons
         handleClick={() => {}}
         handleNavigate={() => {}}
-        buttonOneTxt="Sing up"
+        buttonOneTxt="Sign up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={true}
       />
@@ -97,7 +97,7 @@ describe("<Buttons />", () => {
       <Buttons
         handleClick={() => {}}
         handleNavigate={() => {}}
-        buttonOneTxt="Sing up"
+        buttonOneTxt="Sign up"
         buttonTwoTxt="Log in"
         isRecoverPasswordLink={true}
       />

@@ -1,11 +1,18 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import { HeaderHome } from "./HeaderHome"
+import { MemoryRouter } from "react-router-dom"
+
+const mockNavigate = jest.fn()
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockNavigate
+}))
 
 describe("<Header />", () => {
   it("Should be in the document the Logo and the Title", () => {
     render(<HeaderHome />)
     const logo = screen.getByAltText("Logo")
-    const title = screen.getByText("LuppoTW Pokedex")
+    const title = screen.getByText("LuppoTW PokeDex")
 
     expect(logo).toBeInTheDocument()
     expect(title).toBeInTheDocument()
@@ -14,41 +21,53 @@ describe("<Header />", () => {
   it("Should render the SearchBar when screen width is greater than 900px", () => {
     Object.defineProperty(window, "innerWidth", { value: 910 })
 
-    const { queryByTestId } = render(<HeaderHome />)
+    render(<HeaderHome />)
 
-    const searchBar = queryByTestId("search-bar")
+    const searchBar = screen.queryByTestId("search-bar")
     expect(searchBar).toBeInTheDocument()
   })
 
   it("Should not render the SearchBar when screen width is lower than 900px", () => {
     Object.defineProperty(window, "innerWidth", { value: 900 })
 
-    const { queryByTestId } = render(<HeaderHome />)
+    render(<HeaderHome />)
 
-    const searchBar = queryByTestId("search-bar")
+    const searchBar = screen.queryByTestId("search-bar")
     expect(searchBar).not.toBeInTheDocument()
   })
 
   it("Should open the mobile menu when menu icon is clicked", () => {
-    render(<HeaderHome />)
-    Object.defineProperty(window, "innerWidth", { value: 890 })
+    Object.defineProperty(window, "innerWidth", { value: 900 })
 
-    const hamburgerButton = screen.getByRole("menu")
-    fireEvent.click(hamburgerButton)
+    render(
+      <MemoryRouter>
+        <HeaderHome />
+      </MemoryRouter>
+    )
 
-    const menuMobile = screen.getByText("Log out")
+    const menuButton = screen.getByRole("menu")
+    fireEvent.click(menuButton)
 
-    expect(menuMobile).toBeInTheDocument()
+    const signupButton = screen.getByText("Sign up")
+    const loginButton = screen.getByText("Log in")
+
+    expect(signupButton).toBeInTheDocument()
+    expect(loginButton).toBeInTheDocument()
   })
 
   it("Should close the mobile menu when the close icon is clicked", () => {
-    render(<HeaderHome />)
-    Object.defineProperty(window, "innerWidth", { value: 890 })
+    Object.defineProperty(window, "innerWidth", { value: 900 })
+    render(
+      <MemoryRouter>
+        <HeaderHome />
+      </MemoryRouter>
+    )
 
-    const hamburgerButton = screen.getByRole("menu")
-    fireEvent.click(hamburgerButton)
+    const menuButton = screen.getByRole("menu")
+    fireEvent.click(menuButton)
 
-    const menuMobile = screen.getByText("Log out")
+    const signupButton = screen.getByText("Sign up")
+    const loginButton = screen.getByText("Log in")
 
     const closeButtons = screen.getAllByRole("button")
     const closeButton = closeButtons.find(
@@ -57,7 +76,8 @@ describe("<Header />", () => {
     if (closeButton !== undefined) {
       fireEvent.click(closeButton)
 
-      expect(menuMobile).not.toBeInTheDocument()
+      expect(signupButton).not.toBeInTheDocument()
+      expect(loginButton).not.toBeInTheDocument()
     }
   })
 })
