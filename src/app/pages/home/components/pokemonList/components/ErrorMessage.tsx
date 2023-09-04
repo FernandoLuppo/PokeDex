@@ -5,7 +5,7 @@ export const ErrorMessage: React.FC = () => {
   return (
     <S.ContainerErrorMessage>
       <h3>Pokemon not found</h3>
-      <img src={sadPokemon} alt="" />
+      <img src={sadPokemon} alt="sad-result" />
     </S.ContainerErrorMessage>
   )
 }
