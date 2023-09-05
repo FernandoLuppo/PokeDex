@@ -75,7 +75,7 @@ export const RecoverPassword: React.FC = () => {
           </S.ContainerRecoverPasswordContent>
         ) : (
           <S.ContainerRecoverPasswordContent>
-            <h2>Coloque aqui o código enviado ao seu e-mail:</h2>
+            <h2>Enter the code sent to your email here:</h2>
             <InputForm
               text=""
               placeholder="Put the code sent to se email"
