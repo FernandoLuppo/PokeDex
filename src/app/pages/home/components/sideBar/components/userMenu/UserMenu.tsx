@@ -59,6 +59,13 @@ export const UserMenu: React.FC<IProps> = ({ islogged, userName }) => {
             isbig={undefined}
             onClick={handleLogin}
           />
+          {currentPath !== "/" && (
+            <SecondaryButton
+              isbig={undefined}
+              text="Home"
+              onClick={navigateToHome}
+            />
+          )}
         </>
       )}
     </S.ContainerUser>
