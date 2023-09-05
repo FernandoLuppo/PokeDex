@@ -71,7 +71,7 @@ export const NewPassword: React.FC = () => {
             />
           </div>
 
-          <S.NewPasswordError>{error}</S.NewPasswordError>
+          <S.NewPasswordError data-testid="error">{error}</S.NewPasswordError>
           <Button isbig={undefined} text="Send" onClick={handleClick} />
         </S.ContainerNewPasswordContent>
       </S.ContainerNewPassword>
