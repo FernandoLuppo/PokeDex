@@ -19,20 +19,24 @@ describe("<Header />", () => {
   })
 
   it("Should render the SearchBar when screen width is greater than 900px", () => {
-    Object.defineProperty(window, "innerWidth", { value: 910 })
+    Object.defineProperty(window, "innerWidth", { value: 1000 })
 
     render(<HeaderHome />)
 
-    const searchBar = screen.queryByTestId("search-bar")
+    const searchBar = screen.getByPlaceholderText(
+      "Search by Name or ID"
+    ) as HTMLInputElement
     expect(searchBar).toBeInTheDocument()
   })
 
   it("Should not render the SearchBar when screen width is lower than 900px", () => {
-    Object.defineProperty(window, "innerWidth", { value: 900 })
+    Object.defineProperty(window, "innerWidth", { value: 800 })
 
     render(<HeaderHome />)
 
-    const searchBar = screen.queryByTestId("search-bar")
+    const searchBar = screen.queryByPlaceholderText(
+      "Search by Name or ID"
+    ) as HTMLInputElement
     expect(searchBar).not.toBeInTheDocument()
   })
 
