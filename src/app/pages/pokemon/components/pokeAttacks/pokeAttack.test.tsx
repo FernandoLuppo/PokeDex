@@ -4,7 +4,7 @@ import type { IPokemon } from "../../../../shared/types"
 
 describe("<PokeAttack />", () => {
   it("Should be in the document the attack components", () => {
-    const pokemon: IPokemon = {
+    const { pokemonMovie }: IPokemon = {
       pokemonMovie: [
         {
           movie: "Ember",
@@ -14,7 +14,7 @@ describe("<PokeAttack />", () => {
       ]
     }
 
-    render(<PokeAttacks pokemonMovie={pokemon.pokemonMovie} />)
+    render(<PokeAttacks pokemonMovie={pokemonMovie} />)
 
     const tableTitle = screen.getByText("Attack by Level")
     const tableMovieTitle = screen.getByText("Level")
