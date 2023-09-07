@@ -1,6 +1,6 @@
 import * as S from "./cardStats.styles"
 import type { IPokemon } from "../../../../../../shared/types"
-import { Status } from "./components"
+import { Stats } from "./components"
 import { pokemonStatsAverage } from "../../../../../../shared/utils"
 
 interface IProps {
@@ -14,10 +14,10 @@ export const CardStats: React.FC<IProps> = ({ pokemonStats }) => {
         return (
           <>
             {pokemon.isUserTeam === true ? (
-              <S.ContainerCardStats key={pokemon.genericInfos.id}>
-                <h3>{pokemon.genericInfos.name}</h3>
+              <S.ContainerCardStats key={pokemon.genericInfos?.id}>
+                <h3>{pokemon.genericInfos?.name}</h3>
                 <ul>
-                  <Status pokemonStats={pokemon.pokemonStats} />
+                  <Stats pokemonStats={pokemon.pokemonStats} />
                 </ul>
                 <p>
                   total:{" "}
@@ -27,7 +27,7 @@ export const CardStats: React.FC<IProps> = ({ pokemonStats }) => {
                 </p>
               </S.ContainerCardStats>
             ) : (
-              <S.ContainerCardStats key={pokemon.genericInfos.id}>
+              <S.ContainerCardStats key={pokemon.genericInfos?.id}>
                 <h3>Empty</h3>
               </S.ContainerCardStats>
             )}

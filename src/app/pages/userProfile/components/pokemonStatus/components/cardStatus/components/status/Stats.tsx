@@ -1,4 +1,4 @@
-import * as S from "./status.styles"
+import * as S from "./stats.styles"
 
 interface IProps {
   pokemonStats:
@@ -11,7 +11,7 @@ interface IProps {
     | undefined
 }
 
-export const Status: React.FC<IProps> = ({ pokemonStats }) => {
+export const Stats: React.FC<IProps> = ({ pokemonStats }) => {
   return (
     <>
       {pokemonStats?.map(status => {
