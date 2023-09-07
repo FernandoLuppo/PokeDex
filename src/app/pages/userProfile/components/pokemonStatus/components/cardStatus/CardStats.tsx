@@ -27,7 +27,7 @@ export const CardStats: React.FC<IProps> = ({ pokemonStats }) => {
                 </p>
               </S.ContainerCardStats>
             ) : (
-              <S.ContainerCardStats key={pokemon.genericInfos?.id}>
+              <S.ContainerCardStats>
                 <h3>Empty</h3>
               </S.ContainerCardStats>
             )}
