@@ -7,8 +7,6 @@ interface IProps {
 }
 
 export const PokemonStats: React.FC<IProps> = ({ pokemonStats }) => {
-  console.log(pokemonStats)
-
   return (
     <S.ContainerPokemonStats>
       <CardStats pokemonStats={pokemonStats} />
