@@ -1,6 +1,6 @@
-import { css, styled } from "styled-components"
 import { Theme } from "../../../theme"
 import { pokemonColor } from "../../../utils"
+import { css, styled } from "styled-components"
 
 export const ContainerPokeCard = styled.div`
   cursor: pointer;

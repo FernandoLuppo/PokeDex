@@ -1,8 +1,7 @@
 import * as S from "./home.styles"
 import { HeaderHome } from "../../shared/components"
-import { SideBar } from "./components/sideBar/SideBar"
-
 import { PokemonList } from "./components"
+import { SideBar } from "./components/sideBar/SideBar"
 import { SearchBar } from "../../shared/components/header/headerHome/components"
 
 export const Home: React.FC = () => {

@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react"
 import { ErrorMessage } from "./ErrorMessage"
+import { render, screen } from "@testing-library/react"
 
 describe("ErrorMessage.tsx", () => {
   it("Should be in the document", () => {

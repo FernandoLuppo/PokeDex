@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react"
 import { Buttons } from "./Buttons"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 const mockNavigate = jest.fn()
 

@@ -1,7 +1,7 @@
 import * as S from "./cardStats.styles"
-import type { IPokemon } from "../../../../../../shared/types"
 import { Stats } from "./components"
 import { pokemonStatsAverage } from "../../../../../../shared/utils"
+import type { IPokemon } from "../../../../../../shared/types"
 
 interface IProps {
   pokemonStats: IPokemon[]

@@ -1,8 +1,8 @@
-import userPhoto from "../../../../../../shared/image/user-photo.jpg"
 import * as S from "./userMenu.styles"
+import userPhoto from "../../../../../../shared/image/user-photo.jpg"
 import { Button, SecondaryButton } from "../../../../../../shared/components"
-import { useLocation, useNavigate } from "react-router-dom"
 import { useCallback } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 
 interface IProps {
   islogged: "false" | "true"

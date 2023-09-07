@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react"
 import { InputForm } from ".."
+import { fireEvent, render, screen } from "@testing-library/react"
 
 describe("<InputForm />", () => {
   describe("<label>", () => {

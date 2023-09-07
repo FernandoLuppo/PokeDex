@@ -1,6 +1,6 @@
-import { styled } from "styled-components"
 import { Theme } from "../../shared/theme"
 import LoginImg from "../../shared/image/login-img.svg"
+import { styled } from "styled-components"
 
 export const ContainerLogin = styled.div`
   display: flex;

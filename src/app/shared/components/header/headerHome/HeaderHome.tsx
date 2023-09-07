@@ -1,10 +1,10 @@
 import * as S from "./headerHome.styles"
 import ultraBall from "../../../image/ultra-ball.png"
 import { SearchBar } from "./components"
-import { useContext, useState } from "react"
-import { AiOutlineMenu } from "react-icons/ai"
 import { UserGetInfosContext } from "../../../context"
 import { MenuMobile } from "../menuMobile/MenuMobile"
+import { AiOutlineMenu } from "react-icons/ai"
+import { useContext, useState } from "react"
 
 export const HeaderHome: React.FC = () => {
   const [menuIsVisible, setMenuIsVisible] = useState<

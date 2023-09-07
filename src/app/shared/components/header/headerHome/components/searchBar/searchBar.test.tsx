@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react"
 import { SearchBar } from "./SearchBar"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 describe("<SearchBar />", () => {
   beforeEach(() => {

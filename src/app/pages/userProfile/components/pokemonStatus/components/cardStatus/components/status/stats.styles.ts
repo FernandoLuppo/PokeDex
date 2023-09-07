@@ -1,9 +1,9 @@
-import { css, styled } from "styled-components"
 import { Theme } from "../../../../../../../../shared/theme"
 import {
   pokemonBaseStatsColor,
   pokemonStatsColor
 } from "../../../../../../../../shared/utils"
+import { css, styled } from "styled-components"
 
 export const ContainerStatus = styled.li`
   display: grid;

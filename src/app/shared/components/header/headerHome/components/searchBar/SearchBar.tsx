@@ -1,8 +1,8 @@
-import { useCallback, useContext, useState } from "react"
+import * as S from "./searchBar.styles"
 import searchIcon from "../../../../../image/search.png"
 import { wordsAndNumbers } from "../../../../../service"
-import * as S from "./searchBar.styles"
 import { PokemonFilterContext } from "../../../../../context"
+import { useCallback, useContext, useState } from "react"
 
 export const SearchBar: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>("")

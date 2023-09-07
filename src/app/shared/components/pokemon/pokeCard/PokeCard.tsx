@@ -1,9 +1,9 @@
-import { useCallback } from "react"
 import * as S from "./pokeCard.styles"
-import { useNavigate } from "react-router-dom"
-import type { IPokemon } from "../../../types"
-import { AiOutlinePlus } from "react-icons/ai"
 import { exclude } from "../../../service"
+import type { IPokemon } from "../../../types"
+import { useCallback } from "react"
+import { useNavigate } from "react-router-dom"
+import { AiOutlinePlus } from "react-icons/ai"
 
 interface IProps {
   data: IPokemon

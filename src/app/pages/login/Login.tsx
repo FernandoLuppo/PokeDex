@@ -1,5 +1,5 @@
-import { Card } from "../../shared/components"
 import * as S from "./login.styles"
+import { Card } from "../../shared/components"
 
 export const Login: React.FC = () => {
   return (

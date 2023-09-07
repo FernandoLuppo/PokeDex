@@ -1,5 +1,5 @@
-import { styled } from "styled-components"
 import { Theme } from "../../../../shared/theme"
+import { styled } from "styled-components"
 
 export const ContainerUserMenu = styled.section`
   min-width: 350px;

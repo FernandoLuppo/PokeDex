@@ -1,6 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react"
 import { MenuMobile } from "./MenuMobile"
 import { MemoryRouter } from "react-router-dom"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 const mockNavigate = jest.fn()
 jest.mock("react-router-dom", () => ({

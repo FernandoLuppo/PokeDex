@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
-import { UserGetInfosContext } from "../../shared/context"
 import { UserProfile } from ".."
+import { UserGetInfosContext } from "../../shared/context"
+import { render, screen } from "@testing-library/react"
 
 const mockNavigate = jest.fn()
 jest.mock("react-router-dom", () => ({

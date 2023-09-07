@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
 import { PokemonTeam } from ".."
 import type { IPokemon } from "../../../../shared/types"
+import { render, screen } from "@testing-library/react"
 
 const mockNavigate = jest.fn()
 jest.mock("react-router-dom", () => ({
@@ -60,8 +60,6 @@ describe("<PokemonTeam />", () => {
 
     const pokeCard = screen.getByText("bulbasaur")
     const emptyCard = screen.getAllByTestId("pokemon-empty-card")
-
-    console.log(emptyCard)
 
     expect(pokeCard).toBeInTheDocument()
     expect(emptyCard[0]).toBeInTheDocument()

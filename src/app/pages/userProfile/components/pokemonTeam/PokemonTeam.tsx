@@ -1,5 +1,5 @@
-import { PokeCard } from "../../../../shared/components"
 import * as S from "./pokemonTeam.styles"
+import { PokeCard } from "../../../../shared/components"
 import type { IPokemon } from "../../../../shared/types"
 
 interface IProps {

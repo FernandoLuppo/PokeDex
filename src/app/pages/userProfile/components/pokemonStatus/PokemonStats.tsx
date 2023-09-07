@@ -1,6 +1,6 @@
 import * as S from "./pokemonStats.styles"
-import type { IPokemon } from "../../../../shared/types"
 import { CardStats } from "./components"
+import type { IPokemon } from "../../../../shared/types"
 
 interface IProps {
   pokemonStats: IPokemon[]

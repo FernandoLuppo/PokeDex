@@ -1,10 +1,10 @@
 import * as S from "./pokemon.styles"
-import { useEffect, useState } from "react"
 import { HeaderDefault } from "../../shared/components"
 import { PokeAttacks, PokeInfos } from "./components"
-import type { IPokemon } from "../../shared/types"
-import { useParams } from "react-router-dom"
 import { post } from "../../shared/service"
+import type { IPokemon } from "../../shared/types"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 
 export const Pokemon: React.FC = () => {
   const [pokemon, setPokemon] = useState<IPokemon>()

@@ -1,6 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react"
-
 import { SecondaryButton } from ".."
+import { fireEvent, render, screen } from "@testing-library/react"
 
 describe("<Button />", () => {
   it("Should be in the document with the right text", () => {

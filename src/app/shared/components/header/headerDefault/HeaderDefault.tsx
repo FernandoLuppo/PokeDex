@@ -1,11 +1,11 @@
 import * as S from "./headerDefault.styles"
-import { useCallback, useContext, useState } from "react"
-import { AiOutlineMenu } from "react-icons/ai"
 import { Nav } from "./components"
 import { MenuMobile } from "../menuMobile/MenuMobile"
 import { UserGetInfosContext } from "../../../context"
 import ultraBall from "../../../image/ultra-ball.png"
+import { AiOutlineMenu } from "react-icons/ai"
 import { useNavigate } from "react-router-dom"
+import { useCallback, useContext, useState } from "react"
 
 export const HeaderDefault: React.FC = () => {
   const [menuIsVisible, setMenuIsVisible] = useState<

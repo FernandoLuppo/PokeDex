@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
 import { PokemonStats } from ".."
 import type { IPokemon } from "../../../../shared/types"
+import { render, screen } from "@testing-library/react"
 
 describe("<PokemonStats />", () => {
   it("Should be more than one pokemon stats section in the document whit pokemon infos", () => {

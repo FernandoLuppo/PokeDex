@@ -1,7 +1,7 @@
-import { render, screen } from "@testing-library/react"
 import { PokemonList } from ".."
 import { PokemonFilterContext } from "../../../../shared/context"
 import type { IPokemon } from "../../../../shared/types"
+import { render, screen } from "@testing-library/react"
 
 describe("PokemonList.tsx", () => {
   describe("Should be in the document", () => {

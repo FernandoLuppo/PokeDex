@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components"
 import { Theme } from "../../../../../../shared/theme"
+import styled, { css } from "styled-components"
 
 export const ContainerUser = styled.div<{ islogged: "false" | "true" }>`
   width: 100%;

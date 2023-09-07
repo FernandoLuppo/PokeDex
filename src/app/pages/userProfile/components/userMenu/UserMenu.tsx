@@ -1,12 +1,12 @@
 import * as S from "./userMenu.styles"
 import { Button } from "../../../../shared/components"
 import UserImg from "../../../../shared/image/user-photo.jpg"
-import { useCallback, useContext, useEffect, useState } from "react"
 import { UserGetInfosContext } from "../../../../shared/context"
 import { put } from "../../../../shared/service"
 import { useAuthenticate, usePost } from "../../../../shared/hook"
-import type { IUseAuthenticate } from "../../../../shared/types"
 import { Form } from "../../../../shared/components/cardLoginAndRegister/components"
+import type { IUseAuthenticate } from "../../../../shared/types"
+import { useCallback, useContext, useEffect, useState } from "react"
 
 export const UserMenu: React.FC = () => {
   const { userInfos } = useContext(UserGetInfosContext)

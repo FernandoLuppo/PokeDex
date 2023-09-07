@@ -1,7 +1,7 @@
 import { post } from "../../service"
 import { RecoverPasswordContext } from "./RecoverPasswordContext"
-import type { IUseAuthenticate } from "../../types"
 import { useAuthenticate, usePost } from "../../hook"
+import type { IUseAuthenticate } from "../../types"
 import { useState } from "react"
 
 interface IProps {

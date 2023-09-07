@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react"
 import { AuthContext } from ".."
-import type { IResponse } from "../../types"
 import { useGetUserInfos } from "../../hook"
 import { UserGetInfosContext } from "./UserGetInfosContext"
+import type { IResponse } from "../../types"
+import { useContext, useEffect, useState } from "react"
 
 interface IUserInfos {
   name: string

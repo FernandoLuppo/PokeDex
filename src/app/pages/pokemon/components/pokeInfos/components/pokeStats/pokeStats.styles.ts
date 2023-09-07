@@ -1,10 +1,10 @@
-import { css, styled } from "styled-components"
 import {
   pokemonBaseStatsColor,
   pokemonColor,
   pokemonStatsColor
 } from "../../../../../../shared/utils"
 import { Theme } from "../../../../../../shared/theme"
+import { css, styled } from "styled-components"
 
 export const ContainerPokeStats = styled.div`
   align-self: baseline;

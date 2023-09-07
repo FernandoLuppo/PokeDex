@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react"
 import { Pokemon } from ".."
+import { fireEvent, render, screen } from "@testing-library/react"
 
 const mockNavigate = jest.fn()
 jest.mock("react-router-dom", () => ({

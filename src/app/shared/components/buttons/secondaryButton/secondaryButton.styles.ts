@@ -1,5 +1,5 @@
-import { css, styled } from "styled-components"
 import { Theme } from "../../../theme"
+import { css, styled } from "styled-components"
 
 export const SecondaryButton = styled.button<{ isbig: "yes" | undefined }>`
   cursor: pointer;

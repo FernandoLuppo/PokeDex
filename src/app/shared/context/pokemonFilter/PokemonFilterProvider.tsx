@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
 import { PokemonFilterContext } from "./PokemonFilterContext"
 import { post } from "../../service"
 import type { IPokemon } from "../../types"
+import { useEffect, useState } from "react"
 
 export const PokemonFilterProvider = ({
   children

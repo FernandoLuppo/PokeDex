@@ -1,16 +1,16 @@
 import * as S from "./recoverPassword.styles"
-import { useNavigate } from "react-router-dom"
 import {
   Button,
   HeaderDefault,
   InputForm,
   SecondaryButton
 } from "../../../shared/components"
-import { useCallback, useContext, useState } from "react"
 import { Form } from "../../../shared/components/cardLoginAndRegister/components"
-import type { IUseAuthenticate } from "../../../shared/types"
 import { codeVerification } from "../../../shared/utils"
 import { RecoverPasswordContext } from "../../../shared/context"
+import type { IUseAuthenticate } from "../../../shared/types"
+import { useNavigate } from "react-router-dom"
+import { useCallback, useContext, useState } from "react"
 
 export const RecoverPassword: React.FC = () => {
   const navigate = useNavigate()

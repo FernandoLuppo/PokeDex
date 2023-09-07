@@ -1,6 +1,6 @@
+import { Register } from "./Register"
 import { render, screen } from "@testing-library/react"
 import { BrowserRouter as Router } from "react-router-dom"
-import { Register } from "./Register"
 
 describe("<Register />", () => {
   jest.mock("react-router-dom", () => ({

@@ -4,12 +4,11 @@ import {
   LoadingPage,
   PokeCard
 } from "../../../../../../shared/components"
-import type { IPokemon } from "../../../../../../shared/types"
-import { useCallback, useContext, useEffect, useState } from "react"
 import { get, put } from "../../../../../../shared/service"
-import { useNavigate } from "react-router-dom"
-import {} from "../../../../../../shared/hook"
 import { UserGetInfosContext } from "../../../../../../shared/context"
+import type { IPokemon } from "../../../../../../shared/types"
+import { useNavigate } from "react-router-dom"
+import { useCallback, useContext, useEffect, useState } from "react"
 
 export const PokeSprit: React.FC<IPokemon> = props => {
   const [team, setTeam] = useState<IPokemon[]>()

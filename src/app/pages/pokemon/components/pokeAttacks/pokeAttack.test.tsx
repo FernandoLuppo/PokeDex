@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
 import { PokeAttacks } from ".."
 import type { IPokemon } from "../../../../shared/types"
+import { render, screen } from "@testing-library/react"
 
 describe("<PokeAttack />", () => {
   it("Should be in the document the attack components", () => {

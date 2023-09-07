@@ -1,6 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react"
 import { PokeSprit } from ".."
 import type { IPokemon } from "../../../../../../shared/types"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 const mockNavigate = jest.fn()
 jest.mock("react-router-dom", () => ({

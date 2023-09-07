@@ -1,6 +1,6 @@
 import * as S from "./pokeStats.styles"
-import type { IPokemon } from "../../../../../../shared/types"
 import { pokemonStatsAverage } from "../../../../../../shared/utils"
+import type { IPokemon } from "../../../../../../shared/types"
 
 export const PokeStats: React.FC<IPokemon> = ({ types, pokemonStats }) => {
   return (

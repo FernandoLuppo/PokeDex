@@ -1,4 +1,3 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import {
   Home,
   Login,
@@ -15,6 +14,7 @@ import {
   RecoverPasswordProvider,
   UserGetInfosProvider
 } from "../shared/context"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 
 export const AppRoutes: React.FC = () => {
   return (

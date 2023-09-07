@@ -1,7 +1,7 @@
-import { fireEvent, render, screen } from "@testing-library/react"
 import { Home } from ".."
 import { PokemonFilterContext, UserGetInfosContext } from "../../shared/context"
 import type { IPokemon } from "../../shared/types"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 const mockNavigate = jest.fn()
 const mockLocation = jest.fn()

@@ -1,5 +1,5 @@
-import { Card } from "../../shared/components"
 import * as S from "./register.styles"
+import { Card } from "../../shared/components"
 
 export const Register: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
 import { Stats } from ".."
 import type { IPokemon } from "../../../../../../../../shared/types"
+import { render, screen } from "@testing-library/react"
 
 describe("<Stats />", () => {
   it("Elements should be in the document", () => {

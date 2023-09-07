@@ -1,9 +1,9 @@
 import * as S from "./newPassword"
-import { useCallback, useContext, useEffect, useState } from "react"
-import { Button, HeaderDefault, InputForm } from "../../../shared/components"
 import { put } from "../../../shared/service"
-import { useNavigate, useParams } from "react-router-dom"
 import { RecoverPasswordContext } from "../../../shared/context"
+import { Button, HeaderDefault, InputForm } from "../../../shared/components"
+import { useNavigate, useParams } from "react-router-dom"
+import { useCallback, useContext, useEffect, useState } from "react"
 
 export const NewPassword: React.FC = () => {
   const [password, setPassword] = useState<string>("")

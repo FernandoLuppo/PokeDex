@@ -1,6 +1,6 @@
-import { styled } from "styled-components"
 import { Theme } from "../../shared/theme"
 import registerImg from "../../shared/image/Register-Image.svg"
+import { styled } from "styled-components"
 
 export const ContainerRegister = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react"
 import { Nav } from ".."
 import { UserGetInfosContext } from "../../../../../context"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 const mockNavigate = jest.fn()
 jest.mock("react-router-dom", () => ({

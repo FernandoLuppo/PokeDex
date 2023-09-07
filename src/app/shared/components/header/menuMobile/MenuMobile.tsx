@@ -1,7 +1,7 @@
 import * as S from "./menuMobile.styles"
 import { Logout } from "../.."
-import { IoMdClose } from "react-icons/io"
 import { UserMenu } from "../../../../pages/home/components/sideBar/components"
+import { IoMdClose } from "react-icons/io"
 
 interface IProps {
   menuIsVisible: "true" | "false" | "closed"

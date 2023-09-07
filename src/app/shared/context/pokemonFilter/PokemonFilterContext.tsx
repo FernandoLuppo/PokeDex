@@ -1,5 +1,5 @@
-import { createContext } from "react"
 import type { IPokemon } from "../../types"
+import { createContext } from "react"
 
 interface IProp {
   searchFilterFunction: (data: string) => void

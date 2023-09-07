@@ -1,11 +1,11 @@
 import * as S from "./card.styles"
-import type { IUseAuthenticate } from "../../types"
-import { useNavigate } from "react-router-dom"
+import { post } from "../../service"
 import { LoadingPage } from "../index"
 import { useCallback, useState } from "react"
-import { post } from "../../service"
-import { useAuthenticate, usePost } from "../../hook"
 import { Buttons, Exit, Form } from "./components"
+import { useAuthenticate, usePost } from "../../hook"
+import type { IUseAuthenticate } from "../../types"
+import { useNavigate } from "react-router-dom"
 
 interface IProps {
   isName: boolean

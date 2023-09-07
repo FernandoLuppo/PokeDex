@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
 import { AuthContext } from "./AuthContext"
 import { get } from "../../service"
 import { useCookies } from "../../hook"
+import { useEffect, useState } from "react"
 
 export const AuthProvider = ({
   children

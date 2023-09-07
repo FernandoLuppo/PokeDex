@@ -1,5 +1,5 @@
-import { createContext } from "react"
 import type { IRoutesAuthenticate } from "../../types"
+import { createContext } from "react"
 
 export const AuthContext = createContext<IRoutesAuthenticate>({
   accessToken: null,

@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
 import { CardStats } from ".."
 import type { IPokemon } from "../../../../../../shared/types"
+import { render, screen } from "@testing-library/react"
 
 describe("<CardStats />", () => {
   it("Should be in the document a stats section with pokemon infos", () => {

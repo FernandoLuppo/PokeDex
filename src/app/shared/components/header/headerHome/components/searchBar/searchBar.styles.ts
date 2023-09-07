@@ -1,5 +1,5 @@
-import { styled } from "styled-components"
 import { Theme } from "../../../../../theme"
+import { styled } from "styled-components"
 
 export const SearchBar = styled.div`
   position: relative;

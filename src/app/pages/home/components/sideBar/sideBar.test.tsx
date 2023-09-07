@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
 import { SideBar } from "./SideBar"
 import { UserGetInfosContext } from "../../../../shared/context"
+import { render, screen } from "@testing-library/react"
 
 const mockNavigate = jest.fn()
 const mockLocation = jest.fn()

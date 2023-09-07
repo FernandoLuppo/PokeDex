@@ -1,8 +1,8 @@
 import * as S from "./SideBar.styles"
 import { UserMenu } from "./components"
 import { LoadingPage, Logout } from "../../../../shared/components"
-import { useContext } from "react"
 import { UserGetInfosContext } from "../../../../shared/context"
+import { useContext } from "react"
 
 export const SideBar: React.FC = () => {
   const { userInfos, userIsLogged } = useContext(UserGetInfosContext)

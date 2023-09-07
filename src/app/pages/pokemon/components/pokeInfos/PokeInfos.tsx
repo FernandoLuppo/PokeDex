@@ -1,6 +1,6 @@
 import * as S from "./pokeInfos.styles"
-import type { IPokemon } from "../../../../shared/types"
 import { PokeDescription, PokeSprit, PokeStats } from "./components"
+import type { IPokemon } from "../../../../shared/types"
 
 export const PokeInfos: React.FC<IPokemon> = props => {
   return (

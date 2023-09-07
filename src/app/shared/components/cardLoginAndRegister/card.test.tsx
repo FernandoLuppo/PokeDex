@@ -1,5 +1,5 @@
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { Card } from "./Card"
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react"
 
 jest.mock("axios")
 

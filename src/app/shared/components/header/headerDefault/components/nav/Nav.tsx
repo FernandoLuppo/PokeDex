@@ -1,8 +1,8 @@
 import * as S from "./nav.styles"
-import { useCallback, useContext } from "react"
-import { useNavigate } from "react-router-dom"
 import { get } from "../../../../../service"
 import { UserGetInfosContext } from "../../../../../context"
+import { useNavigate } from "react-router-dom"
+import { useCallback, useContext } from "react"
 
 export const Nav: React.FC = () => {
   const navigate = useNavigate()

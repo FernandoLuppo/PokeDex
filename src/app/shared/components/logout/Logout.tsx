@@ -1,6 +1,6 @@
-import { useCallback } from "react"
 import * as S from "./logout.styles"
 import { get } from "../../service"
+import { useCallback } from "react"
 
 export const Logout: React.FC = () => {
   const handleClick = useCallback(() => {

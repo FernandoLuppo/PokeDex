@@ -1,6 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react"
 import { UserMenu } from ".."
 import { UserGetInfosContext } from "../../../../shared/context"
+import { fireEvent, render, screen } from "@testing-library/react"
 
 beforeEach(() => {
   render(

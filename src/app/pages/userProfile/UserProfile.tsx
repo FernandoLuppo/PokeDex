@@ -1,10 +1,10 @@
 import * as S from "./userProfile.styles"
 import { HeaderDefault, LoadingPage } from "../../shared/components"
 import { PokemonTeam, UserMenu, PokemonStats } from "./components"
-import { useEffect, useState } from "react"
 import { get } from "../../shared/service"
 import { buildingUserTeam } from "../../shared/utils"
 import type { IPokemon } from "../../shared/types"
+import { useEffect, useState } from "react"
 
 export const UserProfile: React.FC = () => {
   const [team, setTeam] = useState<IPokemon[]>([])

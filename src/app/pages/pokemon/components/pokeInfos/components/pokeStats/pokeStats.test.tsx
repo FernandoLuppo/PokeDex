@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react"
 import { PokeStats } from ".."
 import type { IPokemon } from "../../../../../../shared/types"
+import { render, screen } from "@testing-library/react"
 
 describe("<PokeStats />", () => {
   const { pokemonStats }: IPokemon = {
