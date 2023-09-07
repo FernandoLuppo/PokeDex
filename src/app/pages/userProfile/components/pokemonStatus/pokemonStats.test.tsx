@@ -3,7 +3,7 @@ import { PokemonStats } from ".."
 import type { IPokemon } from "../../../../shared/types"
 
 describe("<PokemonStats />", () => {
-  it("Should be more than one pokemon card in the document whit pokemon infos", () => {
+  it("Should be more than one pokemon stats section in the document whit pokemon infos", () => {
     const pokemon: IPokemon[] = [
       {
         isUserTeam: true,
@@ -57,7 +57,7 @@ describe("<PokemonStats />", () => {
     expect(pokemonAverageStatsTwo).toBeInTheDocument()
   })
 
-  it("Should be in the document more than one empty pokemon card", () => {
+  it("Should be in the document more than one empty pokemon stats section", () => {
     const pokemon: IPokemon[] = [
       {
         isUserTeam: false
