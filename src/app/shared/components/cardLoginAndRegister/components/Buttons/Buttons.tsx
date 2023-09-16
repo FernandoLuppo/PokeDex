@@ -2,6 +2,7 @@ import * as S from "./buttons.styles"
 import { Button, SecondaryButton } from "../../../"
 import { useCallback } from "react"
 import { useNavigate } from "react-router-dom"
+import { get } from "../../../../service"
 
 interface IProps {
   handleClick: () => void
@@ -21,7 +22,13 @@ export const Buttons: React.FC<IProps> = ({
   const navigate = useNavigate()
 
   const handleRecoverPassword = useCallback(() => {
-    navigate("/recover-password/check-email")
+    get("/user/logout")
+      .then(() => {
+        navigate("/recover-password/check-email")
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }, [])
 
   return (

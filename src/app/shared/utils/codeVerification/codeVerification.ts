@@ -6,7 +6,7 @@ export const codeVerification = (
 
   const fullCode = userCode?.join("")
 
-  if (fullCode !== undefined && fullCode !== emailCode) {
+  if (fullCode !== undefined && fullCode === emailCode) {
     data = { fullCode, isError: false }
     return data
   }

@@ -38,10 +38,12 @@ export const RecoverPassword: React.FC = () => {
       return
     }
     setError(data.error)
-  }, [email, userCode])
+  }, [email, userCode, isCode])
 
   const verification = useCallback(() => {
     const isVerify = codeVerification(userCode, emailCode)
+    console.log(isVerify)
+
     if (isVerify.isError) {
       alert("Wrong Code!")
       return
